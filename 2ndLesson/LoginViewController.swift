@@ -22,7 +22,7 @@ class LoginViewController: UIViewController {
         let recognizerTwo = UILongPressGestureRecognizer(target: self, action: #selector(onPush))
         self.view.addGestureRecognizer(recognizerTwo)
     }
-//По долгому нажатию поле Name заполнится текстом "longPressGestureWorks"
+//По долгому нажатию поле Name заполнится текстом "longPressGestureWorks" и добавил архив в Гит
     @objc func onPush () {
 //        print("tap") - Варинат с лекции
         userNameTextField.text = "longPressGestureWorks"
