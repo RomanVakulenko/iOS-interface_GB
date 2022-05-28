@@ -133,7 +133,6 @@
                     <connections>
                         <outlet property="loginButton" destination="48g-hP-fPZ" id="27r-1B-wt2"/>
                         <outlet property="passwordtextField" destination="lq9-NG-2Qe" id="1NZ-IN-gH9"/>
-                        <outlet property="titleImageView" destination="ii0-mo-BdN" id="dGN-xN-YaV"/>
                         <outlet property="userNameTextField" destination="kqM-DK-z58" id="iDX-tY-gfm"/>
                     </connections>
                 </viewController>
