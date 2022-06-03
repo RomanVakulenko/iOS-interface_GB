@@ -11,7 +11,9 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var passwordtextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
-  
+    
+    let toTabBarController = "toTabBarController" //делать константу не строкой, чтобы если дальше ошибемся, то Xcode нам подскажет где ошиблись, а в строке в кавычках он не распознает опечатку
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -30,20 +32,21 @@ class LoginViewController: UIViewController {
 
     @IBAction func loginButtonPressed(_ sender: UIButton) {
 
-    if let login = userNameTextField.text,
-        login == "root" {
-            userNameTextField.backgroundColor = UIColor.green
-        }
-        else {
-            userNameTextField.backgroundColor = UIColor.magenta
-        }
-    if let password = passwordtextField.text,
-        password == "123" {
-        passwordtextField.backgroundColor = UIColor.green
-        }
-        else {
-            passwordtextField.backgroundColor = UIColor.magenta
-        }
+//    if let login = userNameTextField.text,
+//        login == "root" {
+//            userNameTextField.backgroundColor = UIColor.green
+//        }
+//        else {
+//            userNameTextField.backgroundColor = UIColor.magenta
+//        }
+//    if let password = passwordtextField.text,
+//        password == "123" {
+//        passwordtextField.backgroundColor = UIColor.green
+//        }
+//        else {
+//            passwordtextField.backgroundColor = UIColor.magenta
+//        }
+        performSegue(withIdentifier: toTabBarController, sender: nil)
     }
 }
 
