@@ -296,10 +296,10 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3wh-XS-Sfv">
-                                <rect key="frame" x="273" y="96" width="138" height="31"/>
+                                <rect key="frame" x="292" y="96" width="101" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="SendSmthWritten"/>
+                                <buttonConfiguration key="configuration" style="filled" title="SendButton"/>
                                 <connections>
                                     <action selector="pressSendButton:" destination="h1U-c6-y2h" eventType="touchUpInside" id="Pfk-xg-NHQ"/>
                                 </connections>
