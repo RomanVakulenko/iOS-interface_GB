@@ -266,7 +266,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="MyGroup" id="EyP-b6-Qi7">
-                        <barButtonItem key="rightBarButtonItem" image="plus.app" catalog="system" id="Qgh-az-a4A">
+                        <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="Qgh-az-a4A">
                             <connections>
                                 <segue destination="h1U-c6-y2h" kind="show" id="1tn-0M-Y5Q"/>
                             </connections>
@@ -365,7 +365,7 @@
     <resources>
         <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="pencil.and.outline" catalog="system" width="128" height="128"/>
-        <image name="plus.app" catalog="system" width="128" height="114"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <image name="scribble.variable" catalog="system" width="128" height="118"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
