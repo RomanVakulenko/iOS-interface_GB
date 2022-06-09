@@ -64,4 +64,4 @@ extension MyFriendsController: UITableViewDelegate {
 //            receiverLabel.text = text
 //        }
 //    }
-
+//added smth to make a push to remote
