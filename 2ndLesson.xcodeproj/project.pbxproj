@@ -15,9 +15,13 @@
 		AD59DC842840BC90007A8C82 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD59DC822840BC90007A8C82 /* Main.storyboard */; };
 		AD59DC862840BC91007A8C82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD59DC852840BC91007A8C82 /* Assets.xcassets */; };
 		AD59DC892840BC91007A8C82 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD59DC872840BC91007A8C82 /* LaunchScreen.storyboard */; };
+		ADC5B84D284FA15500BD95FD /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC5B84C284FA15500BD95FD /* Friend.swift */; };
+		ADC5B851284FA5F500BD95FD /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC5B84F284FA5F500BD95FD /* CustomTableViewCell.swift */; };
+		ADC5B852284FA5F500BD95FD /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADC5B850284FA5F500BD95FD /* CustomTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AD107C86284B59AF004BDC15 /* 2ndLesson.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = 2ndLesson.entitlements; sourceTree = "<group>"; };
 		AD11067D284A49AB000BEFF7 /* AllGroupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGroupController.swift; sourceTree = "<group>"; };
 		AD11067F284A4A87000BEFF7 /* MyFriendsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFriendsController.swift; sourceTree = "<group>"; };
 		AD59DC792840BC90007A8C82 /* 2ndLesson.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 2ndLesson.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -28,6 +32,9 @@
 		AD59DC852840BC91007A8C82 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AD59DC882840BC91007A8C82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AD59DC8A2840BC91007A8C82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ADC5B84C284FA15500BD95FD /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
+		ADC5B84F284FA5F500BD95FD /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		ADC5B850284FA5F500BD95FD /* CustomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,17 +67,45 @@
 		AD59DC7B2840BC90007A8C82 /* 2ndLesson */ = {
 			isa = PBXGroup;
 			children = (
+				AD107C86284B59AF004BDC15 /* 2ndLesson.entitlements */,
 				AD59DC7C2840BC90007A8C82 /* AppDelegate.swift */,
 				AD59DC7E2840BC90007A8C82 /* SceneDelegate.swift */,
-				AD59DC802840BC90007A8C82 /* LoginViewController.swift */,
+				ADC5B84B284FA11D00BD95FD /* Models */,
+				ADC5B84A284FA10900BD95FD /* Controllers */,
 				AD59DC822840BC90007A8C82 /* Main.storyboard */,
-				AD11067D284A49AB000BEFF7 /* AllGroupController.swift */,
-				AD11067F284A4A87000BEFF7 /* MyFriendsController.swift */,
 				AD59DC852840BC91007A8C82 /* Assets.xcassets */,
 				AD59DC872840BC91007A8C82 /* LaunchScreen.storyboard */,
 				AD59DC8A2840BC91007A8C82 /* Info.plist */,
 			);
 			path = 2ndLesson;
+			sourceTree = "<group>";
+		};
+		ADC5B84A284FA10900BD95FD /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				ADC5B84E284FA52B00BD95FD /* cell */,
+				AD59DC802840BC90007A8C82 /* LoginViewController.swift */,
+				AD11067D284A49AB000BEFF7 /* AllGroupController.swift */,
+				AD11067F284A4A87000BEFF7 /* MyFriendsController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		ADC5B84B284FA11D00BD95FD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				ADC5B84C284FA15500BD95FD /* Friend.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		ADC5B84E284FA52B00BD95FD /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				ADC5B84F284FA5F500BD95FD /* CustomTableViewCell.swift */,
+				ADC5B850284FA5F500BD95FD /* CustomTableViewCell.xib */,
+			);
+			path = cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -133,6 +168,7 @@
 			files = (
 				AD59DC892840BC91007A8C82 /* LaunchScreen.storyboard in Resources */,
 				AD59DC862840BC91007A8C82 /* Assets.xcassets in Resources */,
+				ADC5B852284FA5F500BD95FD /* CustomTableViewCell.xib in Resources */,
 				AD59DC842840BC90007A8C82 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,6 +183,8 @@
 				AD59DC812840BC90007A8C82 /* LoginViewController.swift in Sources */,
 				AD11067E284A49AB000BEFF7 /* AllGroupController.swift in Sources */,
 				AD110680284A4A87000BEFF7 /* MyFriendsController.swift in Sources */,
+				ADC5B851284FA5F500BD95FD /* CustomTableViewCell.swift in Sources */,
+				ADC5B84D284FA15500BD95FD /* Friend.swift in Sources */,
 				AD59DC7D2840BC90007A8C82 /* AppDelegate.swift in Sources */,
 				AD59DC7F2840BC90007A8C82 /* SceneDelegate.swift in Sources */,
 			);
@@ -293,8 +331,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = 2ndLesson/2ndLesson.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 994K78QDG8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = 2ndLesson/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -307,8 +348,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "i.-ndLesson";
+				PRODUCT_BUNDLE_IDENTIFIER = i.2ndLesson;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -320,8 +362,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = 2ndLesson/2ndLesson.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 994K78QDG8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = 2ndLesson/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -334,8 +379,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "i.-ndLesson";
+				PRODUCT_BUNDLE_IDENTIFIER = i.2ndLesson;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

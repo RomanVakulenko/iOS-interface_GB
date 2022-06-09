@@ -17,10 +17,10 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-//Вариант с лекции:
+//Вариант с 3ей лекции:
 //        let recognizer = UITapGestureRecognizer(target: self, action: #selector(onTap))
 //        self.view.addGestureRecognizer(recognizer)
-        
+
         let recognizerTwo = UILongPressGestureRecognizer(target: self, action: #selector(onPush))
         self.view.addGestureRecognizer(recognizerTwo)
     }

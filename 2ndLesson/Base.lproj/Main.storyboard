@@ -151,21 +151,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="HlR-f0-54G">
-                                <rect key="frame" x="0.0" y="138" width="414" height="675"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PSG-va-M8v">
-                                <rect key="frame" x="186" y="109" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="sVA-Xq-Gj1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="HlR-f0-54G" firstAttribute="top" secondItem="sVA-Xq-Gj1" secondAttribute="top" constant="50" id="Jtm-fD-u6s"/>
+                            <constraint firstItem="HlR-f0-54G" firstAttribute="top" secondItem="sVA-Xq-Gj1" secondAttribute="top" id="Jtm-fD-u6s"/>
                             <constraint firstItem="sVA-Xq-Gj1" firstAttribute="bottom" secondItem="HlR-f0-54G" secondAttribute="bottom" id="mII-Li-f0q"/>
                             <constraint firstItem="HlR-f0-54G" firstAttribute="leading" secondItem="sVA-Xq-Gj1" secondAttribute="leading" id="vdZ-7y-WOr"/>
                             <constraint firstItem="sVA-Xq-Gj1" firstAttribute="trailing" secondItem="HlR-f0-54G" secondAttribute="trailing" id="ydu-dQ-kFm"/>
@@ -173,12 +166,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="elv-nA-8aW"/>
                     <connections>
-                        <outlet property="receiverLabel" destination="PSG-va-M8v" id="WQh-rd-8uj"/>
+                        <outlet property="tableView" destination="HlR-f0-54G" id="O56-Xe-oMi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="735-CW-nAK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3052" y="-411"/>
+            <point key="canvasLocation" x="3050.7246376811595" y="-411.16071428571428"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="CIJ-MB-mSm">
