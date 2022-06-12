@@ -44,7 +44,7 @@ extension MyFriendsController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: customTableViewCellReuseIdentifier, for: indexPath) as? CustomTableViewCell else {return UITableViewCell()}
             
         let friend = myFriends[indexPath.row]
-        cell.configure(image: UIImage(named: friend.avatar!), name: friend.name, description: friend.age)
+        cell.configure(image: UIImage(named: friend.avatar ?? ""), name: friend.name, description: friend.age)
         return cell
         }
     }
