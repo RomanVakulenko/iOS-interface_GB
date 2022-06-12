@@ -32,7 +32,6 @@ class MyFriendsController: UIViewController {
         tableView.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: customTableViewCellReuseIdentifier)
         tableView.dataSource = self
         tableView.delegate = self
-        
     }
 }
         
@@ -64,4 +63,4 @@ extension MyFriendsController: UITableViewDelegate {
 //            receiverLabel.text = text
 //        }
 //    }
-//added smth to make a push to remote after getting a token)
+
