@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD0EE3C12859DAC30051E931 /* FotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0EE3BF2859DAC30051E931 /* FotoCollectionViewCell.swift */; };
+		AD0EE3C22859DAC30051E931 /* FotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD0EE3C02859DAC30051E931 /* FotoCollectionViewCell.xib */; };
+		AD0EE3C42859DB300051E931 /* GallaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0EE3C32859DB300051E931 /* GallaryViewController.swift */; };
+		AD0EE3C62859DCB60051E931 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0EE3C52859DCB60051E931 /* Resources.swift */; };
+		AD0EE3CA2859DDE00051E931 /* MFC+TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0EE3C92859DDE00051E931 /* MFC+TableViewDataSource.swift */; };
+		AD0EE3CC2859E8600051E931 /* GVC+CollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0EE3CB2859E8600051E931 /* GVC+CollectionViewDelegate.swift */; };
+		AD0EE3D22859E93D0051E931 /* GVC+CollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0EE3D12859E93D0051E931 /* GVC+CollectionViewDataSource.swift */; };
+		AD0EE3D42859E9C30051E931 /* GVC+CollectionViewDelegateFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0EE3D32859E9C30051E931 /* GVC+CollectionViewDelegateFlowLayout.swift */; };
 		AD11067E284A49AB000BEFF7 /* AllGroupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD11067D284A49AB000BEFF7 /* AllGroupController.swift */; };
 		AD110680284A4A87000BEFF7 /* MyFriendsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD11067F284A4A87000BEFF7 /* MyFriendsController.swift */; };
 		AD59DC7D2840BC90007A8C82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD59DC7C2840BC90007A8C82 /* AppDelegate.swift */; };
@@ -21,6 +29,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AD0EE3BF2859DAC30051E931 /* FotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		AD0EE3C02859DAC30051E931 /* FotoCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FotoCollectionViewCell.xib; sourceTree = "<group>"; };
+		AD0EE3C32859DB300051E931 /* GallaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GallaryViewController.swift; path = 2ndLesson/Controllers/ViewControllers/GallaryViewController.swift; sourceTree = SOURCE_ROOT; };
+		AD0EE3C52859DCB60051E931 /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Resources.swift; path = 2ndLesson/Resources.swift; sourceTree = SOURCE_ROOT; };
+		AD0EE3C92859DDE00051E931 /* MFC+TableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MFC+TableViewDataSource.swift"; sourceTree = "<group>"; };
+		AD0EE3CB2859E8600051E931 /* GVC+CollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GVC+CollectionViewDelegate.swift"; sourceTree = "<group>"; };
+		AD0EE3D12859E93D0051E931 /* GVC+CollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GVC+CollectionViewDataSource.swift"; sourceTree = "<group>"; };
+		AD0EE3D32859E9C30051E931 /* GVC+CollectionViewDelegateFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GVC+CollectionViewDelegateFlowLayout.swift"; sourceTree = "<group>"; };
 		AD107C86284B59AF004BDC15 /* 2ndLesson.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = 2ndLesson.entitlements; sourceTree = "<group>"; };
 		AD11067D284A49AB000BEFF7 /* AllGroupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGroupController.swift; sourceTree = "<group>"; };
 		AD11067F284A4A87000BEFF7 /* MyFriendsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFriendsController.swift; sourceTree = "<group>"; };
@@ -48,6 +64,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AD0EE3C82859DD250051E931 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				AD59DC802840BC90007A8C82 /* LoginViewController.swift */,
+				AD11067D284A49AB000BEFF7 /* AllGroupController.swift */,
+				AD11067F284A4A87000BEFF7 /* MyFriendsController.swift */,
+				AD0EE3C92859DDE00051E931 /* MFC+TableViewDataSource.swift */,
+				AD0EE3C32859DB300051E931 /* GallaryViewController.swift */,
+				AD0EE3CB2859E8600051E931 /* GVC+CollectionViewDelegate.swift */,
+				AD0EE3D12859E93D0051E931 /* GVC+CollectionViewDataSource.swift */,
+				AD0EE3D32859E9C30051E931 /* GVC+CollectionViewDelegateFlowLayout.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		AD59DC702840BC90007A8C82 = {
 			isa = PBXGroup;
 			children = (
@@ -84,9 +115,8 @@
 			isa = PBXGroup;
 			children = (
 				ADC5B84E284FA52B00BD95FD /* cell */,
-				AD59DC802840BC90007A8C82 /* LoginViewController.swift */,
-				AD11067D284A49AB000BEFF7 /* AllGroupController.swift */,
-				AD11067F284A4A87000BEFF7 /* MyFriendsController.swift */,
+				AD0EE3C82859DD250051E931 /* ViewControllers */,
+				AD0EE3C52859DCB60051E931 /* Resources.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -104,6 +134,8 @@
 			children = (
 				ADC5B84F284FA5F500BD95FD /* CustomTableViewCell.swift */,
 				ADC5B850284FA5F500BD95FD /* CustomTableViewCell.xib */,
+				AD0EE3BF2859DAC30051E931 /* FotoCollectionViewCell.swift */,
+				AD0EE3C02859DAC30051E931 /* FotoCollectionViewCell.xib */,
 			);
 			path = cell;
 			sourceTree = "<group>";
@@ -169,6 +201,7 @@
 				AD59DC892840BC91007A8C82 /* LaunchScreen.storyboard in Resources */,
 				AD59DC862840BC91007A8C82 /* Assets.xcassets in Resources */,
 				ADC5B852284FA5F500BD95FD /* CustomTableViewCell.xib in Resources */,
+				AD0EE3C22859DAC30051E931 /* FotoCollectionViewCell.xib in Resources */,
 				AD59DC842840BC90007A8C82 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -183,9 +216,16 @@
 				AD59DC812840BC90007A8C82 /* LoginViewController.swift in Sources */,
 				AD11067E284A49AB000BEFF7 /* AllGroupController.swift in Sources */,
 				AD110680284A4A87000BEFF7 /* MyFriendsController.swift in Sources */,
+				AD0EE3C62859DCB60051E931 /* Resources.swift in Sources */,
+				AD0EE3CC2859E8600051E931 /* GVC+CollectionViewDelegate.swift in Sources */,
 				ADC5B851284FA5F500BD95FD /* CustomTableViewCell.swift in Sources */,
+				AD0EE3D42859E9C30051E931 /* GVC+CollectionViewDelegateFlowLayout.swift in Sources */,
 				ADC5B84D284FA15500BD95FD /* Friend.swift in Sources */,
+				AD0EE3D22859E93D0051E931 /* GVC+CollectionViewDataSource.swift in Sources */,
+				AD0EE3C42859DB300051E931 /* GallaryViewController.swift in Sources */,
 				AD59DC7D2840BC90007A8C82 /* AppDelegate.swift in Sources */,
+				AD0EE3CA2859DDE00051E931 /* MFC+TableViewDataSource.swift in Sources */,
+				AD0EE3C12859DAC30051E931 /* FotoCollectionViewCell.swift in Sources */,
 				AD59DC7F2840BC90007A8C82 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

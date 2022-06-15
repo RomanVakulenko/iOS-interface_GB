@@ -166,22 +166,23 @@
                     <navigationItem key="navigationItem" id="elv-nA-8aW"/>
                     <connections>
                         <outlet property="tableView" destination="HlR-f0-54G" id="O56-Xe-oMi"/>
+                        <segue destination="Pxi-gG-FX5" kind="show" identifier="fromFriendsListToGallary" id="oOc-PV-NF4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="735-CW-nAK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3050.7246376811595" y="-411.16071428571428"/>
         </scene>
-        <!--View Controller-->
+        <!--Gallary View Controller-->
         <scene sceneID="CIJ-MB-mSm">
             <objects>
-                <viewController id="Pxi-gG-FX5" sceneMemberID="viewController">
+                <viewController id="Pxi-gG-FX5" customClass="GallaryViewController" customModule="_ndLesson" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jpG-jT-5Hj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="TOk-d9-5Gg">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pPx-mF-04h">
                                     <size key="itemSize" width="128" height="128"/>
@@ -201,6 +202,10 @@
                             <constraint firstItem="TOk-d9-5Gg" firstAttribute="leading" secondItem="jn9-nR-uGa" secondAttribute="leading" id="cNW-V5-Klw"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="qTE-E4-hnc"/>
+                    <connections>
+                        <outlet property="collectionView" destination="TOk-d9-5Gg" id="EGy-BS-iOH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nxC-Qr-6St" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
