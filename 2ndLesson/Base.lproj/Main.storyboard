@@ -141,7 +141,7 @@
             </objects>
             <point key="canvasLocation" x="387" y="92"/>
         </scene>
-        <!--My Friends Controller-->
+        <!--Friends-->
         <scene sceneID="QoX-lY-6Fr">
             <objects>
                 <viewController storyboardIdentifier=" " id="8yK-fA-Gh8" customClass="MyFriendsController" customModule="_ndLesson" customModuleProvider="target" sceneMemberID="viewController">
@@ -163,7 +163,7 @@
                             <constraint firstItem="sVA-Xq-Gj1" firstAttribute="trailing" secondItem="HlR-f0-54G" secondAttribute="trailing" id="ydu-dQ-kFm"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="elv-nA-8aW"/>
+                    <navigationItem key="navigationItem" title="Friends" id="elv-nA-8aW"/>
                     <connections>
                         <outlet property="tableView" destination="HlR-f0-54G" id="O56-Xe-oMi"/>
                         <segue destination="Pxi-gG-FX5" kind="show" identifier="fromFriendsListToGallary" id="oOc-PV-NF4"/>
@@ -171,9 +171,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="735-CW-nAK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3050.7246376811595" y="-411.16071428571428"/>
+            <point key="canvasLocation" x="2970" y="-400"/>
         </scene>
-        <!--Gallary View Controller-->
+        <!--Gallary-->
         <scene sceneID="CIJ-MB-mSm">
             <objects>
                 <viewController id="Pxi-gG-FX5" customClass="GallaryViewController" customModule="_ndLesson" customModuleProvider="target" sceneMemberID="viewController">
@@ -202,14 +202,14 @@
                             <constraint firstItem="TOk-d9-5Gg" firstAttribute="leading" secondItem="jn9-nR-uGa" secondAttribute="leading" id="cNW-V5-Klw"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="qTE-E4-hnc"/>
+                    <navigationItem key="navigationItem" title="Gallary" id="qTE-E4-hnc"/>
                     <connections>
                         <outlet property="collectionView" destination="TOk-d9-5Gg" id="EGy-BS-iOH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nxC-Qr-6St" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4001" y="-409"/>
+            <point key="canvasLocation" x="3742" y="-400"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="tWv-vW-IbT">
@@ -234,7 +234,7 @@
         <!--MyGroup-->
         <scene sceneID="Wji-ug-DWJ">
             <objects>
-                <viewController id="Pto-MO-LmZ" sceneMemberID="viewController">
+                <viewController id="Pto-MO-LmZ" customClass="MyGroupViewController" customModule="_ndLesson" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hXz-tq-3R2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -260,10 +260,13 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="FsZ-zq-CSr" id="d5l-oo-MF2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T9z-8M-8Y2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3145" y="317"/>
+            <point key="canvasLocation" x="3016" y="317"/>
         </scene>
         <!--AllGroups-->
         <scene sceneID="KeD-TB-t4e">
@@ -274,42 +277,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="72s-b4-j3f">
-                                <rect key="frame" x="0.0" y="138" width="414" height="675"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rb3-jy-Qz3">
-                                <rect key="frame" x="159" y="96" width="97" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3wh-XS-Sfv">
-                                <rect key="frame" x="292" y="96" width="101" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="SendButton"/>
-                                <connections>
-                                    <action selector="pressSendButton:" destination="h1U-c6-y2h" eventType="touchUpInside" id="Pfk-xg-NHQ"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="T5v-AD-Q7H"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="T5v-AD-Q7H" firstAttribute="bottom" secondItem="72s-b4-j3f" secondAttribute="bottom" id="G4L-l1-1hK"/>
                             <constraint firstItem="72s-b4-j3f" firstAttribute="leading" secondItem="T5v-AD-Q7H" secondAttribute="leading" id="T3o-FG-Db8"/>
-                            <constraint firstItem="72s-b4-j3f" firstAttribute="top" secondItem="T5v-AD-Q7H" secondAttribute="top" constant="50" id="ogu-C9-vmV"/>
+                            <constraint firstItem="72s-b4-j3f" firstAttribute="top" secondItem="T5v-AD-Q7H" secondAttribute="top" id="ogu-C9-vmV"/>
                             <constraint firstItem="T5v-AD-Q7H" firstAttribute="trailing" secondItem="72s-b4-j3f" secondAttribute="trailing" id="qjD-Lr-Q1n"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="AllGroups" id="Vaf-sW-Pk0"/>
                     <connections>
-                        <outlet property="messageTextField" destination="rb3-jy-Qz3" id="xe7-0H-pba"/>
+                        <outlet property="tableView" destination="72s-b4-j3f" id="dgq-Jd-XaP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PY9-r0-1ht" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4016" y="323"/>
+            <point key="canvasLocation" x="3793" y="317"/>
         </scene>
         <!--MyFriendList-->
         <scene sceneID="HHl-qh-t2Z">
