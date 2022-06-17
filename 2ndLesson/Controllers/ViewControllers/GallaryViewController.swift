@@ -11,7 +11,7 @@ class GallaryViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     let fotoCollectionViewReuseIdentifier = "fotoCollectionViewReuseIdentifier"
-    var fotoAlbum = [String] ()
+    var fotoAlbum = [String] ()//инициализировали фотольбом
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +19,8 @@ class GallaryViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
     }
-    override func viewWillAppear(_ animated: Bool) {
+    
+    override func viewWillAppear(_ animated: Bool) { //перед показом, чтобы обновилась инфа
         super.viewWillAppear(animated)
         collectionView.reloadData()
     }

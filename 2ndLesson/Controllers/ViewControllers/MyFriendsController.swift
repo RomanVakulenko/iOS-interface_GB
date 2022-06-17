@@ -33,6 +33,7 @@ class MyFriendsController: UIViewController {
         tableView.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: customTableViewCellReuseIdentifier)
         tableView.dataSource = self
         tableView.delegate = self
+               
     }
 }
 
@@ -40,20 +41,20 @@ extension MyFriendsController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
     }
-// перед тем как отработает Сега мы подготовимся/ У Сеги есть название - Identifier, source - тот контроллер с кот. мы переходим и destination - тот контроллер на кот. переходим
+// перед тем как отработает Сега мы подготовимся/ У Сеги есть название - Identifier, source - тот контроллер с кот. мы переходим и destination - тот контроллер, на кот. переходим
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender) //если оверрайд, то всегда используем суперметод
-        if segue.identifier == fromFriendListToGallarySegue,//если АйДи совпадает, то проверяем дальше
-           let destinationController = segue.destination as? GallaryViewController,//если целевой контроллер нужного класса
-           let fotos = sender as? [String] { //и если фото это массив из строк, тогда можем добраться до свойства destinationController (св-во прописали в GallaryViewController
+        if segue.identifier == fromFriendListToGallarySegue,   //если АйДи совпадает, то проверяем дальше
+           let destinationController = segue.destination as? GallaryViewController,//если целевой контроллер нужного класса(т.е. нужный контроллер)
+           let fotos = sender as? [String] { //указывая sender as? мы убираем опционал; и если фото это массив из строк, тогда можем добраться до свойства destinationController (св-во fotoAlbum прописали в GallaryViewController)
             
             destinationController.fotoAlbum = fotos
         }
     }
-    
+    //чтобы передать фотольбом при клике на конкретного друга, нам надо передать фотольбом
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let fotos = myFriends[indexPath.row].fotoAlbum
-        performSegue(withIdentifier: fromFriendListToGallarySegue, sender: fotos)
+        let fotos = myFriends[indexPath.row].fotoAlbum //придет индекс той ячейки,на кот.нажали и из массива мы можем достать данные - достаем фотоальбом
+        performSegue(withIdentifier: fromFriendListToGallarySegue, sender: fotos) // соответственно sender это фотос
     }
 }
 
@@ -65,4 +66,4 @@ extension MyFriendsController: UITableViewDelegate {
 //            receiverLabel.text = text
 //        }
 //    }
-
+ 

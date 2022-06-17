@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+// если нужно, чтобы в строке было всегда фиксированное число ячеек и большее переходило на новую строку, то:
 extension GallaryViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         

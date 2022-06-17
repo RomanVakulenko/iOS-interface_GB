@@ -21,7 +21,6 @@ class AllGroupController: UIViewController {
         groups.append(group3)
         return groups
     }
-    
     var groups = [Group]() //создали массив из групп и инициализируем его сразу - во viewDidLoad вызовем fillData и передадим в groups
     let customTableViewCellReuse = "customTableViewCellReuse"
     
@@ -49,7 +48,7 @@ extension AllGroupController: UITableViewDataSource {
         return cell
     }
 }
-extension AllGroupController: UITableViewDelegate {
+extension AllGroupController: UITableViewDelegate {// отсюда будем распространять нотификейшены
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
     }

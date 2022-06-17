@@ -8,6 +8,7 @@
 import UIKit
 
 extension MyFriendsController: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return myFriends.count
         }

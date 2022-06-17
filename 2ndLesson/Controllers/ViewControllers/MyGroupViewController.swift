@@ -20,17 +20,17 @@ class MyGroupViewController: UIViewController {
         tableView.delegate = self
         
         // а тут мы подпишемся на нотификейшн
-        NotificationCenter.default.addObserver(self, selector: #selector(didPressToGroup(_:)), name: Notification.Name("pressToGroup"), object: nil)//объект мы лучше поймаем в функции, чтобы применить какую-либо логику
+        NotificationCenter.default.addObserver(self, selector: #selector(didPressToGroup(_:)), name: Notification.Name("pressToGroup"), object: nil)//обозревателем указываем этотКласс, селектор - это функция,кот. будет обрабатывать, нейм - на какое событие мы подписываемся, объект мы лучше поймаем в функции, чтобы применить какую-либо логику;
     }
     @objc func didPressToGroup(_ notification: Notification) {
-        // ловим нотификейшн как параметр в функции-обработчике
-        guard let group = notification.object as? Group else {return} //берем из Нотификейшн объект, безопасно его кастим до группы
+        // ловим нотификейшен
+        guard let group = notification.object as? Group else {return} //берем из Нотификейшн объект, как параметр в функции-обработчике, безопасно его кастим до группы
         
         if !groups.contains(where: {groupItem in
             groupItem.name == group.name //проверяем содержится ли группа, которая была передана, в текущем массиве; содержится ли она
         }) {
-            groups.append(group) //и если не содержится то добавляем группу и
-            tableView.reloadData()//перезагружаем ячейки
+            groups.append(group) // и если не содержится, то добавляем группу и
+            tableView.reloadData()// перезагружаем ячейки
         }
     }
     deinit {
@@ -44,15 +44,14 @@ extension MyGroupViewController: UITableViewDataSource {
         return groups.count
     }
     
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: customTableViewCellReuse, for: indexPath) as? CustomTableViewCell else { return UITableViewCell() }
         
         cell.configure(self.groups[indexPath.row])
-        
         return cell
     }
 }
+
 extension MyGroupViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
