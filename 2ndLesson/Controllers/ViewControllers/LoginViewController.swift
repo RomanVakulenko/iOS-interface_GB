@@ -100,11 +100,23 @@ class LoginViewController: UIViewController {
         springEffectToLoginButton.initialVelocity = 10
         loginButton.layer.add(springEffectToLoginButton, forKey: nil)
         
+
+        
+//Вот тут пытался - но не достиг желаемого: слишком быстро переключается как бы ни менял длит. и delay ;-(
+//Как надо, чтобы 3 секунды разлетались поля и заголовок-лейбл и кнопка, а после 3сек совершался бы переход?
+        UIView.animateKeyframes(withDuration: 3, delay: 0) { [weak self] in
+            self?.loadingViewAnimation()
+        } completion: { [weak self] _ in
+            self?.performSegue(withIdentifier: self?.toTabBarController ?? "", sender: nil)
+        }
+        
+/*//Этот код с asyncAfter работает как и все остальное!!! Спасибо, Родион, за подсказку!
         loadingViewAnimation() //вызывается анимация перемигающих точек
         //задержка выполнения какого то кода
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { [weak self] in
             self?.performSegue(withIdentifier: self?.toTabBarController ?? "", sender: nil)
         }
+ */
     }
 }
 
