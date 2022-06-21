@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -84,11 +85,38 @@
                                                     <action selector="loginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mW6-TC-8k1"/>
                                                 </connections>
                                             </button>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9MX-H1-hnR">
+                                                <rect key="frame" x="202" y="260" width="10" height="10"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="10" id="OSX-1U-ncN"/>
+                                                    <constraint firstAttribute="width" constant="10" id="sDR-ue-Wm3"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="afz-tm-oBQ">
+                                                <rect key="frame" x="182" y="260" width="10" height="10"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="10" id="QaC-hA-KNe"/>
+                                                    <constraint firstAttribute="width" constant="10" id="cC1-ec-ViF"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jAa-2i-iES">
+                                                <rect key="frame" x="222" y="260" width="10" height="10"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="10" id="5GO-A6-cl9"/>
+                                                    <constraint firstAttribute="width" constant="10" id="DXP-1N-8cQ"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="kqM-DK-z58" firstAttribute="top" secondItem="t7E-2Z-Qw4" secondAttribute="bottom" constant="8" id="5NR-HJ-HzM"/>
+                                            <constraint firstItem="jAa-2i-iES" firstAttribute="centerY" secondItem="9MX-H1-hnR" secondAttribute="centerY" id="6Oq-ne-Sa3"/>
                                             <constraint firstAttribute="trailing" secondItem="t7E-2Z-Qw4" secondAttribute="trailing" constant="8" id="6na-ts-OZ5"/>
+                                            <constraint firstItem="9MX-H1-hnR" firstAttribute="leading" secondItem="afz-tm-oBQ" secondAttribute="trailing" constant="10" id="7m6-w1-MV2"/>
+                                            <constraint firstItem="jAa-2i-iES" firstAttribute="top" secondItem="9MX-H1-hnR" secondAttribute="top" id="E51-bD-5DY"/>
                                             <constraint firstItem="CAr-3m-ei7" firstAttribute="trailing" secondItem="kqM-DK-z58" secondAttribute="trailing" id="GTv-Pl-a56"/>
                                             <constraint firstItem="kqM-DK-z58" firstAttribute="leading" secondItem="t7E-2Z-Qw4" secondAttribute="leading" id="KW2-Tr-XPs"/>
                                             <constraint firstItem="48g-hP-fPZ" firstAttribute="centerX" secondItem="3zU-vF-52r" secondAttribute="centerX" id="MOg-UA-8IH"/>
@@ -96,11 +124,16 @@
                                             <constraint firstItem="lq9-NG-2Qe" firstAttribute="trailing" secondItem="CAr-3m-ei7" secondAttribute="trailing" id="Otd-s2-CeT"/>
                                             <constraint firstItem="CAr-3m-ei7" firstAttribute="leading" secondItem="kqM-DK-z58" secondAttribute="leading" id="Vd2-Bj-Bbz"/>
                                             <constraint firstItem="kqM-DK-z58" firstAttribute="trailing" secondItem="t7E-2Z-Qw4" secondAttribute="trailing" id="VwZ-TK-o19"/>
+                                            <constraint firstItem="jAa-2i-iES" firstAttribute="leading" secondItem="9MX-H1-hnR" secondAttribute="trailing" constant="10" id="WQI-4t-kMh"/>
                                             <constraint firstItem="CAr-3m-ei7" firstAttribute="top" secondItem="kqM-DK-z58" secondAttribute="bottom" constant="16" id="XqD-uD-5WA"/>
                                             <constraint firstItem="t7E-2Z-Qw4" firstAttribute="top" secondItem="3zU-vF-52r" secondAttribute="top" constant="16" id="a35-ji-XG4"/>
                                             <constraint firstItem="t7E-2Z-Qw4" firstAttribute="leading" secondItem="3zU-vF-52r" secondAttribute="leading" constant="8" id="iyu-wZ-rp8"/>
+                                            <constraint firstItem="afz-tm-oBQ" firstAttribute="centerY" secondItem="9MX-H1-hnR" secondAttribute="centerY" id="mlc-wF-k3j"/>
+                                            <constraint firstItem="9MX-H1-hnR" firstAttribute="top" secondItem="48g-hP-fPZ" secondAttribute="bottom" constant="20" id="oTZ-Ex-J3A"/>
                                             <constraint firstAttribute="height" constant="1000" id="pZd-yl-L7Y"/>
+                                            <constraint firstItem="9MX-H1-hnR" firstAttribute="centerX" secondItem="3zU-vF-52r" secondAttribute="centerX" id="q6S-ZJ-349"/>
                                             <constraint firstItem="lq9-NG-2Qe" firstAttribute="top" secondItem="CAr-3m-ei7" secondAttribute="bottom" constant="8" id="t4e-rV-rLJ"/>
+                                            <constraint firstItem="afz-tm-oBQ" firstAttribute="top" secondItem="9MX-H1-hnR" secondAttribute="top" id="ukI-ze-LUF"/>
                                             <constraint firstItem="48g-hP-fPZ" firstAttribute="top" secondItem="lq9-NG-2Qe" secondAttribute="bottom" constant="30" id="yFY-UZ-fgh"/>
                                         </constraints>
                                     </view>
@@ -131,15 +164,19 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="loadingFirstView" destination="afz-tm-oBQ" id="P9z-JX-6ef"/>
+                        <outlet property="loadingSecondView" destination="9MX-H1-hnR" id="ZUe-yf-Uwp"/>
+                        <outlet property="loadingThirdView" destination="jAa-2i-iES" id="Ehx-Yq-LCG"/>
                         <outlet property="loginButton" destination="48g-hP-fPZ" id="27r-1B-wt2"/>
                         <outlet property="passwordtextField" destination="lq9-NG-2Qe" id="1NZ-IN-gH9"/>
+                        <outlet property="titleLabelView" destination="GyF-WQ-Txo" id="Nac-78-ppx"/>
                         <outlet property="userNameTextField" destination="kqM-DK-z58" id="iDX-tY-gfm"/>
                         <segue destination="UIr-oM-zI9" kind="presentation" identifier="toTabBarController" modalPresentationStyle="fullScreen" id="0YX-sw-wfT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="387" y="92"/>
+            <point key="canvasLocation" x="386.95652173913044" y="91.741071428571431"/>
         </scene>
         <!--Friends-->
         <scene sceneID="QoX-lY-6Fr">
@@ -343,6 +380,9 @@
         <image name="pencil.and.outline" catalog="system" width="128" height="128"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="scribble.variable" catalog="system" width="128" height="118"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
