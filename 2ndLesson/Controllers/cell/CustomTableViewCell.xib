@@ -34,14 +34,25 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9Ya-Uh-avD">
                                 <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jBM-ZB-FwA">
+                                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <connections>
+                                    <action selector="pressImageViewButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="gm7-tb-hNI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="9Ya-Uh-avD" firstAttribute="centerY" secondItem="fiw-op-1sJ" secondAttribute="centerY" id="Alm-Oi-jF5"/>
+                            <constraint firstItem="jBM-ZB-FwA" firstAttribute="centerX" secondItem="9Ya-Uh-avD" secondAttribute="centerX" id="J6y-af-nHG"/>
+                            <constraint firstItem="jBM-ZB-FwA" firstAttribute="height" secondItem="9Ya-Uh-avD" secondAttribute="height" id="Kx6-QU-bqa"/>
+                            <constraint firstItem="jBM-ZB-FwA" firstAttribute="centerY" secondItem="9Ya-Uh-avD" secondAttribute="centerY" id="Q7E-er-DeO"/>
                             <constraint firstAttribute="width" secondItem="fiw-op-1sJ" secondAttribute="height" multiplier="1:1" id="RfR-Ic-HPa"/>
                             <constraint firstItem="9Ya-Uh-avD" firstAttribute="centerX" secondItem="fiw-op-1sJ" secondAttribute="centerX" id="ScY-eh-P3q"/>
                             <constraint firstAttribute="width" constant="100" id="V1E-AR-vAz"/>
                             <constraint firstItem="9Ya-Uh-avD" firstAttribute="height" secondItem="fiw-op-1sJ" secondAttribute="height" id="djz-yw-dpu"/>
+                            <constraint firstItem="jBM-ZB-FwA" firstAttribute="width" secondItem="9Ya-Uh-avD" secondAttribute="width" id="hrT-Uy-1pE"/>
                             <constraint firstItem="9Ya-Uh-avD" firstAttribute="width" secondItem="fiw-op-1sJ" secondAttribute="width" id="jat-zx-67o"/>
                             <constraint firstAttribute="height" constant="100" id="nct-rX-IAC"/>
                         </constraints>

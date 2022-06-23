@@ -42,6 +42,7 @@
             <size key="customSize" width="385" height="351"/>
             <connections>
                 <outlet property="fotoImafeView" destination="Ahf-S0-Kqu" id="Phy-BI-bdg"/>
+                <outlet property="likeControlView" destination="8bf-KR-Gbk" id="RCO-3d-TFY"/>
             </connections>
             <point key="canvasLocation" x="167.39130434782609" y="22.433035714285712"/>
         </collectionViewCell>

@@ -10,30 +10,37 @@ import UIKit
 class MyFriendsController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     let fromFriendListToGallarySegue = "fromFriendsListToGallary"
     
-    func fillData() -> [Friend] {
-        let friend1 = Friend(name: "Roman", age: "27", avatar: "roman1", fotoAlbum: ["roman1"])
-        let friend2 = Friend(name: "Roman", age: "27", avatar: "roman2", fotoAlbum: ["roman1","roman2","roman3"])
-        let friend3 = Friend(name: "Roman", age: "27", avatar: "roman3", fotoAlbum: ["roman3"])
-        var friendsArray = [Friend]()
-        friendsArray.append(friend1)
-        friendsArray.append(friend2)
-        friendsArray.append(friend3)
-        return friendsArray
-    }
-    
-    var myFriends = [Friend]()
+    //var sourceFriends = [Friend]()// а это будет исходный массив для сёрч поиска. 8L1h51mУбрали,тк Storage(singleton)его заместил - в нем теперь хранится
+    var myFriends = [Friend]() //для сёрч поиска это пусть будет отфильтрованный массив
     let customTableViewCellReuseIdentifier = "customTableViewCellReuseIdentifier"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        myFriends = fillData()
+        myFriends = Storage.shared.friends
+        //sourceFriends = myFriends //8урок. Убрали,тк Storage(singleton)его заместил - в нем теперь хранится
         tableView.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: customTableViewCellReuseIdentifier)
         tableView.dataSource = self
         tableView.delegate = self
-               
+        searchBar.delegate = self //8урок_так searchBar знает в какой классе будут реализованы методы делегата и будет их вызывать
+    }
+}
+//8урок когда загружается MyFriendsController оба массива имеют одинаковое наполнение, дальше мы фильтруем из sourceFriends, формируя myFriends и обновляя табличку
+extension MyFriendsController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String){
+        if searchText.isEmpty {
+            myFriends = Storage.shared.friends //8L1h51m sourceFriends убрали,тк Storage(singleton)его заместил - в нем теперь хранится
+        }
+        else { //когда в сёрч поле есть что-то
+            myFriends = Storage.shared.friends.filter ({friendItem in
+                friendItem.name.lowercased().contains(searchText.lowercased()) //если запрос содержится в searchText, тогда он попадет в myFriends;lowercased - сравнение в нижнем регистре
+            })
+        }
+        tableView.reloadData()
     }
 }
 
@@ -46,24 +53,27 @@ extension MyFriendsController: UITableViewDelegate {
         super.prepare(for: segue, sender: sender) //если оверрайд, то всегда используем суперметод
         if segue.identifier == fromFriendListToGallarySegue,   //если АйДи совпадает, то проверяем дальше
            let destinationController = segue.destination as? GallaryViewController,//если целевой контроллер нужного класса(т.е. нужный контроллер)
-           let fotos = sender as? [String] { //указывая sender as? мы убираем опционал; и если фото это массив из строк, тогда можем добраться до свойства destinationController (св-во fotoAlbum прописали в GallaryViewController)
+//           let fotos = sender as? [MyFoto] { //указывая sender as? мы убираем опционал; и если фото это массив из строк, тогда можем добраться до свойства destinationController (св-во fotoAlbum прописали в GallaryViewController), 8L1h22m вместо String вставили MyFoto (передаем делегатом нажатие и счетчик)
             
-            destinationController.fotoAlbum = fotos
+            let fotoArrayIndex = sender as? Int { //8L1h54m
+            destinationController.fotoAlbumIndex = fotoArrayIndex //8L1h54m 
         }
-    }
-    //чтобы передать фотольбом при клике на конкретного друга, нам надо передать фотольбом
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let fotos = myFriends[indexPath.row].fotoAlbum //придет индекс той ячейки,на кот.нажали и из массива мы можем достать данные - достаем фотоальбом
-        performSegue(withIdentifier: fromFriendListToGallarySegue, sender: fotos) // соответственно sender это фотос
     }
 }
 
-//        NotificationCenter.default.addObserver(self, selector: #selector(catchMessage(_:)), name: NSNotification.Name("sendMeaasageFromAllGroups"), object: nil)
+/*    //чтобы передать фотольбом при клике на конкретного друга, нам надо передать фотольбом
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let fotos = myFriends[indexPath.row].fotoAlbum //придет индекс той ячейки,на кот.нажали и из массива мы можем достать данные - достаем фотоальбом. 8L1h53m давайте передадим не фотольбом, а индекс
+        performSegue(withIdentifier: fromFriendListToGallarySegue, sender: indexPath.row) // соответственно sender это фотос. 8L1h53m давайте передадим не фотольбом, а индекс (вместо fotos)
+    } //закомментили, тк мы сами обрабатываем нажатие (в самой ячейке добавили прозрачную кнопку на ImageView и прокинули IBAction, написав в completion блоке переход по Segue)
+}*/
 
-    
-//    @objc func catchMessage (_ notification: Notification) {
-//        if let text = notification.object as? String {
-//            receiverLabel.text = text
-//        }
-//    }
- 
+
+/*        NotificationCenter.default.addObserver(self, selector: #selector(catchMessage(_:)), name: NSNotification.Name("sendMeaasageFromAllGroups"), object: nil)
+
+    @objc func catchMessage (_ notification: Notification) {
+        if let text = notification.object as? String {
+            receiverLabel.text = text
+        }
+    }
+*/

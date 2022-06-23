@@ -63,7 +63,30 @@ class LoginViewController: UIViewController {
                     }
             }
     }
-
+// вырезали из другого контроллера и вставили тут, чтобы показать как работает Singleton (storage)
+    func fillData() -> [Friend] {
+        let myPhoto = MyFoto(url: "roman1")
+        
+        let friend1 = Friend(name: "Ivan", age: "34", avatar: "roman1", fotoAlbum: [myPhoto])
+        let friend2 = Friend(name: "Roman", age: "27", avatar: "roman2", fotoAlbum: [myPhoto, myPhoto, myPhoto, myPhoto, myPhoto])
+        let friend3 = Friend(name: "Petr", age: "23", avatar: "roman3", fotoAlbum: [myPhoto])
+        let friend4 = Friend(name: "Egor", age: "14", avatar: "roman1", fotoAlbum: [myPhoto])
+        let friend5 = Friend(name: "Alexey", age: "27", avatar: "roman2", fotoAlbum: [myPhoto,myPhoto,myPhoto])
+        let friend6 = Friend(name: "Ignat", age: "23", avatar: "roman3", fotoAlbum: [myPhoto])
+        var friendsArray = [Friend]()
+        friendsArray.append(friend1)
+        friendsArray.append(friend2)
+        friendsArray.append(friend3)
+        friendsArray.append(friend4)
+        friendsArray.append(friend5)
+        friendsArray.append(friend6)
+        //8L57m добавим 30 друзей, чтобы проверить не перезаписываются ли лайки друзей scroll'oм
+        for _ in 0...30 {
+            friendsArray[1].fotoAlbum.append(myPhoto)
+        }
+        return friendsArray
+    }
+    
     @IBAction func loginButtonPressed(_ sender: UIButton) {
         //    if let login = userNameTextField.text,
 //        login == "root" {
@@ -99,24 +122,16 @@ class LoginViewController: UIViewController {
         springEffectToLoginButton.damping = 15 //затухание
         springEffectToLoginButton.initialVelocity = 10
         loginButton.layer.add(springEffectToLoginButton, forKey: nil)
+  
         
-
+        Storage.shared.friends = fillData() //8L1h50m в Storage записали Friendов
         
-//Вот тут пытался - но не достиг желаемого: слишком быстро переключается как бы ни менял длит. и delay ;-(
-//Как надо, чтобы 3 секунды разлетались поля и заголовок-лейбл и кнопка, а после 3сек совершался бы переход?
-        UIView.animateKeyframes(withDuration: 3, delay: 0) { [weak self] in
-            self?.loadingViewAnimation()
-        } completion: { [weak self] _ in
-            self?.performSegue(withIdentifier: self?.toTabBarController ?? "", sender: nil)
-        }
-        
-/*//Этот код с asyncAfter работает как и все остальное!!! Спасибо, Родион, за подсказку!
+//Этот код с asyncAfter работает как и все остальное!!! Спасибо, Родион, за подсказку!
         loadingViewAnimation() //вызывается анимация перемигающих точек
         //задержка выполнения какого то кода
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { [weak self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.9) { [weak self] in
             self?.performSegue(withIdentifier: self?.toTabBarController ?? "", sender: nil)
         }
- */
     }
 }
 

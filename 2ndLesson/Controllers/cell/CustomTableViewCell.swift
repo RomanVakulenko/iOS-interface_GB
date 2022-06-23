@@ -14,20 +14,22 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var viewForShadowFoto: UIView!
     
+    var closure: ( () -> Void )? //8L2h27 сохраним и сделаем ? чтобы не инициализировать ее
     
     override func prepareForReuse() {
         super.prepareForReuse()
         fotoImageView.image = nil
         nameLabel.text = nil
         descriptionLabel.text = nil
-        
+        closure = nil //обнуляем
     }
     
-    func configure (image: UIImage?, name: String?, description: String?) {
+    func configure (image: UIImage?, name: String?, description: String?, closure: @escaping () -> Void) {//8L2h27 клоужер для факта нажатия
         fotoImageView.image = image
         nameLabel.text = name
         descriptionLabel.textColor = #colorLiteral(red: 0.01680417731, green: 0.1983509958, blue: 1, alpha: 1)
         descriptionLabel.text = description
+        self.closure = closure //8L2h28
         
 //скругляем края у картинок, а тень применяем ко Вью (в котором лежит сама аватарка-UIImage)
         fotoImageView.layer.cornerRadius = 30 // cutting corners with radius
@@ -46,5 +48,46 @@ class CustomTableViewCell: UITableViewCell {
             descriptionLabel.text = description
         }
     }
+    
+    @IBAction func pressImageViewButton(_ sender: UIButton) {
+//        UIView.animate(withDuration: 0.7) {[weak self] in
+//            self?.fotoImageView.transform = CGAffineTransform(scaleX: 0.6, y: 0.6) // так мы изменяем мастшаб фото
+//        } completion: { [weak self]_ in
+//            self?.closure? () // переходим на след.Вью посредством клоужера
+//        }
 
+//задача чтобы картинка сжималась, потом пружиной разжималась и оставалась первоначального масштаба. Вопрос в том, как сделать так, чтобы аватарка возвращалась в исходное состояние до масштабированного уменьшения и ОСТАВАЛАСЬ В ТАКОМ ИСХОДНОМ РАЗМЕРЕ? Пока подогнал тем, что использовал перемещение 0,0 и тогда картинка как исходная
+        UIView.animate(withDuration: 1,
+                             delay: 0,
+                             options: []) { [weak self] in
+            self?.fotoImageView.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
+        } completion: {_ in
+            UIView.animate(withDuration: 0.5,
+                           delay: 0,
+                           usingSpringWithDamping: 0.2, // пружиннаяАнимация,Damping - жесткостьПружины
+                           initialSpringVelocity: 1, //начальная скорость
+                           options: [],
+                           animations: { [weak self] in
+                                guard let self = self else {return} // избавились от опционала
+                                let translation = CGAffineTransform(translationX: 0, y: 0) //сместитьОтносительноИсхТ.(origin)
+                                self.fotoImageView.transform = translation //анимация перемещения
+                                },
+                               completion: { _ in
+                                    self.closure? ()}
+                          )
+                    }
+        }
+
+        
+//2ой вариант как уменьшить картинку и пружинно вернуть в размер, но после размер остается уменьшенный
+//    UIView.animate(withDuration: 1,
+//                    delay: 0,
+//                    options: [.autoreverse]) { [weak self] in
+//                self?.fotoImageView.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
+//            } completion: { [weak self]_ in
+//                 self?.closure? ()
+//    }
+//
+//
+//}
 }

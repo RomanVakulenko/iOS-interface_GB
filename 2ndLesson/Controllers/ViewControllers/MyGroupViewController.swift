@@ -22,6 +22,7 @@ class MyGroupViewController: UIViewController {
         // а тут мы подпишемся на нотификейшн
         NotificationCenter.default.addObserver(self, selector: #selector(didPressToGroup(_:)), name: Notification.Name("pressToGroup"), object: nil)//обозревателем указываем этотКласс, селектор - это функция,кот. будет обрабатывать, нейм - на какое событие мы подписываемся, объект мы лучше поймаем в функции, чтобы применить какую-либо логику;
     }
+    
     @objc func didPressToGroup(_ notification: Notification) {
         // ловим нотификейшен
         guard let group = notification.object as? Group else {return} //берем из Нотификейшн объект, как параметр в функции-обработчике, безопасно его кастим до группы

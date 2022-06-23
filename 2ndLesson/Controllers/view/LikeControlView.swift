@@ -8,10 +8,15 @@
 import UIKit
 // как делать CustomControl (heart - like)
 
+protocol LikeControlProtocol: AnyObject { //8ур1ч26 для передачи нажатия и цифры счетчика (AnyObject - значит, что этот протокол смогут использовать только объекты (в нашем примере классы, кот могут ссылку на себя передать нам в качестве делегата - 19строка)
+    func pressLike(likeState:Bool, currentCounter:Int)
+}
+
 @IBDesignable class LikeControlView: UIView {
     @IBOutlet weak var counterLabel: UILabel!
     @IBOutlet weak var heartImageView: UIImageView!
    
+    weak var delegate : LikeControlProtocol? //ссылаемся на протокол,weak и AnyObject развязывают цикл сильных ссылок
     var counter = 0
     var isPressed = false
     
@@ -46,19 +51,34 @@ import UIKit
         
         counterLabel.text = String(counter) //обрабатываем нажатия
     }
+//8ур45мин: чтобы не перезаписывались лайки при скроллинге
+    func configure (isLiked: Bool, counter: Int) {
+        self.counter = counter //если эту функц кто-то вызвал, тогда мы устанавливаем исх значение
+        isPressed = isLiked
+        likeState()//8L54m
+    }
     
-    @IBAction func pressLikeButton(_ sender: UIButton) {
-        isPressed = !isPressed //нажали и кнопка стала тру, если была фолс
-        
+//8L54m
+    func likeState() {
         if isPressed {
-            counter += 1
             heartImageView.image = UIImage.init(systemName: "heart.fill")
         }
         else {
-            counter -= 1
             heartImageView.image = UIImage.init(systemName: "heart")
         }
         counterLabel.text = String(counter)
+    }
+    
+    @IBAction func pressLikeButton(_ sender: UIButton) {
+        isPressed = !isPressed //нажали и кнопка стала тру, если была фолс
+        if isPressed {
+            counter += 1
+        }
+        else {
+            counter -= 1
+        }
+        likeState()
+        delegate?.pressLike(likeState: isPressed, currentCounter: counter) // ? т.к. он weak
     }
     
     
