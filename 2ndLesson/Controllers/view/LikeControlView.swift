@@ -8,10 +8,18 @@
 import UIKit
 // как делать CustomControl (heart - like)
 
-@IBDesignable class LikeControlView: UIView {
+//8L1h23m надо из LikeControlView передать нажатия и счет лайков - напишем протокол
+
+protocol LikeControlProtocol: AnyObject { //8L1h29m AnyObject - так мы говорим, что протокол только для ссылочного типа - т.е этот протокол смогут использовать какие-то объекты, т.е классы, которые ссылку на себя смогут передать в качестве делегата
+    func pressLike(likeState: Bool, currentCounter: Int)
+}
+
+
+class LikeControlView: UIView {
     @IBOutlet weak var counterLabel: UILabel!
     @IBOutlet weak var heartImageView: UIImageView!
    
+    weak var delegate: LikeControlProtocol? //8L1h26m надо объявить протокол - дать ссылку на него, weak + AnyObject  в протоколе развязывают цикл сильных ссылок
     var counter = 0
     var isPressed = false
     
@@ -63,7 +71,6 @@ import UIKit
         counterLabel.text = String(counter)
     }
     
-    
     @IBAction func pressLikeButton(_ sender: UIButton) {
         isPressed = !isPressed //нажали и кнопка стала тру, если была фолс
         if isPressed {
@@ -73,6 +80,7 @@ import UIKit
             counter -= 1
         }
         likeState() //8L54m меняется состояние лайка и число
+        delegate?.pressLike(likeState: isPressed, currentCounter: counter) // 1ч30м ? - опциональный, т.к. слабая ссылка
     }
     
     

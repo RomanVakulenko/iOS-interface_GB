@@ -1,9 +1,6 @@
-//
-//  MyFriendsController.swift
-//  2ndLesson
-//
+
 //  Created by Roman Vakulenko on 03.06.2022.
-//
+// 
 
 import UIKit
 

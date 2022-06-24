@@ -15,7 +15,8 @@ extension MyFriendsController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: customTableViewCellReuseIdentifier, for: indexPath) as? CustomTableViewCell else {return UITableViewCell()}
-            
+        
+        // ячейка должна работать только с теми данными, кот. ей минимально необходимы - эти д аннные мы и передаем ей в конфигураторе
         let friend = myFriends[indexPath.row]
         cell.configure(image: UIImage(named: friend.avatar ?? ""), name: friend.name, description: friend.age)
         return cell
