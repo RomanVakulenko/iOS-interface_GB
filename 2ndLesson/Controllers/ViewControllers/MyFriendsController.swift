@@ -8,32 +8,50 @@
 import UIKit
 
 class MyFriendsController: UIViewController {
-
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
+    
     let fromFriendListToGallarySegue = "fromFriendsListToGallary"
     
     func fillData() -> [Friend] {
         let friend1 = Friend(name: "Roman", age: "27", avatar: "roman1", fotoAlbum: ["roman1"])
-        let friend2 = Friend(name: "Roman", age: "27", avatar: "roman2", fotoAlbum: ["roman1","roman2","roman3"])
-        let friend3 = Friend(name: "Roman", age: "27", avatar: "roman3", fotoAlbum: ["roman3"])
+        let friend2 = Friend(name: "Ivan", age: "27", avatar: "roman2", fotoAlbum: ["roman1","roman2","roman3"])
+        let friend3 = Friend(name: "Alexey", age: "27", avatar: "roman3", fotoAlbum: ["roman3"])
         var friendsArray = [Friend]()
         friendsArray.append(friend1)
         friendsArray.append(friend2)
         friendsArray.append(friend3)
         return friendsArray
     }
-    
-    var myFriends = [Friend]()
+//8.для работы searchBar нам нужно 2 массива: 1-ый исходный, 2ой-с отфильтрованными данными согласнно введенным символам
+    var sourceFriends = [Friend]() //пусть это будет исходный массив
+    var myFriends = [Friend]() //пусть это будет отфильтрованный
     let customTableViewCellReuseIdentifier = "customTableViewCellReuseIdentifier"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         myFriends = fillData()
+        sourceFriends = myFriends //8.там же где заполняем массив myFriends, там же и заполняем sourceFriends
         tableView.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: customTableViewCellReuseIdentifier)
         tableView.dataSource = self
         tableView.delegate = self
-               
+        searchBar.delegate = self //8L25m чтобы searchBar знал в какой класс он будет отдавать делегаты
+    }
+}
+
+//8. после заполнения массивов мы фильтруем в sourceFriends и обновляем myFriends массив - табличку
+extension MyFriendsController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty {
+            myFriends = sourceFriends //если текст searchBar пустой/все стерли, то массивы должны быть равны
+        }
+        else {
+            myFriends = sourceFriends.filter ({ friendItem in
+                friendItem.name.lowercased().contains(searchText.lowercased()) //будет проверять содержится ли в нем searchText, если да, то этот элемент попадет в myFriends, .lowercased() - приводим сравнение текстов к нижнему регистру(больше ни на что не влияет)
+            })
+        }
+        tableView.reloadData()
     }
 }
 
@@ -57,6 +75,7 @@ extension MyFriendsController: UITableViewDelegate {
         performSegue(withIdentifier: fromFriendListToGallarySegue, sender: fotos) // соответственно sender это фотос
     }
 }
+
 
 //        NotificationCenter.default.addObserver(self, selector: #selector(catchMessage(_:)), name: NSNotification.Name("sendMeaasageFromAllGroups"), object: nil)
 
