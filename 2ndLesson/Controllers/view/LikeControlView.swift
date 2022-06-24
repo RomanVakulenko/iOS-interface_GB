@@ -46,19 +46,33 @@ import UIKit
         
         counterLabel.text = String(counter) //обрабатываем нажатия
     }
+
+//8.45м если функцию кто-то вызвал(нажал), то мы устанавливаем исходные значения
+    func configure(isLiked: Bool, counter: Int) {
+        self.counter = counter
+        isPressed = isLiked
+    }
     
-    @IBAction func pressLikeButton(_ sender: UIButton) {
-        isPressed = !isPressed //нажали и кнопка стала тру, если была фолс
-        
+    func likeState () { //ее вызываем по нажатию на лайк
         if isPressed {
-            counter += 1
             heartImageView.image = UIImage.init(systemName: "heart.fill")
         }
         else {
-            counter -= 1
             heartImageView.image = UIImage.init(systemName: "heart")
         }
         counterLabel.text = String(counter)
+    }
+    
+    
+    @IBAction func pressLikeButton(_ sender: UIButton) {
+        isPressed = !isPressed //нажали и кнопка стала тру, если была фолс
+        if isPressed {
+            counter += 1
+        }
+        else {
+            counter -= 1
+        }
+        likeState() //8L54m меняется состояние лайка и число
     }
     
     

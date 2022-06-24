@@ -14,15 +14,27 @@ class MyFriendsController: UIViewController {
     let fromFriendListToGallarySegue = "fromFriendsListToGallary"
     
     func fillData() -> [Friend] {
-        let friend1 = Friend(name: "Roman", age: "27", avatar: "roman1", fotoAlbum: ["roman1"])
-        let friend2 = Friend(name: "Ivan", age: "27", avatar: "roman2", fotoAlbum: ["roman1","roman2","roman3"])
-        let friend3 = Friend(name: "Alexey", age: "27", avatar: "roman3", fotoAlbum: ["roman3"])
+        let myPhoto = MyFoto(url: "roman1") //8L1h19 изменяем в соответствии со структурой Foto и тогда в этой структуре мы сможем сохранять все лайки
+        let friend1 = Friend(name: "Ivan", age: "34", avatar: "roman1", fotoAlbum: [myPhoto])
+        let friend2 = Friend(name: "Roman", age: "27", avatar: "roman2", fotoAlbum: [myPhoto, myPhoto, myPhoto, myPhoto, myPhoto])
+        let friend3 = Friend(name: "Petr", age: "23", avatar: "roman3", fotoAlbum: [myPhoto])
+        let friend4 = Friend(name: "Egor", age: "14", avatar: "roman1", fotoAlbum: [myPhoto])
+        let friend5 = Friend(name: "Alexey", age: "27", avatar: "roman2", fotoAlbum: [myPhoto,myPhoto,myPhoto])
+        let friend6 = Friend(name: "Ignat", age: "23", avatar: "roman3", fotoAlbum: [myPhoto])
         var friendsArray = [Friend]()
         friendsArray.append(friend1)
         friendsArray.append(friend2)
         friendsArray.append(friend3)
+        friendsArray.append(friend4)
+        friendsArray.append(friend5)
+        friendsArray.append(friend6)
+        //8L57m добавим 30 друзей, чтобы проверить не перезаписываются ли лайки друзей scroll'oм
+        for _ in 0...30 {
+            friendsArray[1].fotoAlbum.append(myPhoto)
+        }
         return friendsArray
     }
+    
 //8.для работы searchBar нам нужно 2 массива: 1-ый исходный, 2ой-с отфильтрованными данными согласнно введенным символам
     var sourceFriends = [Friend]() //пусть это будет исходный массив
     var myFriends = [Friend]() //пусть это будет отфильтрованный
@@ -64,7 +76,7 @@ extension MyFriendsController: UITableViewDelegate {
         super.prepare(for: segue, sender: sender) //если оверрайд, то всегда используем суперметод
         if segue.identifier == fromFriendListToGallarySegue,   //если АйДи совпадает, то проверяем дальше
            let destinationController = segue.destination as? GallaryViewController,//если целевой контроллер нужного класса(т.е. нужный контроллер)
-           let fotos = sender as? [String] { //указывая sender as? мы убираем опционал; и если фото это массив из строк, тогда можем добраться до свойства destinationController (св-во fotoAlbum прописали в GallaryViewController)
+           let fotos = sender as? [MyFoto] { //указывая sender as? мы убираем опционал; и если фото это массив из строк, тогда можем добраться до свойства destinationController (св-во fotoAlbum прописали в GallaryViewController), 8L1h21m поставили MyFoto вместо String - это передача, а прием в GallaryViewController - там тоже изменим на MyFoto
             
             destinationController.fotoAlbum = fotos
         }
@@ -75,7 +87,6 @@ extension MyFriendsController: UITableViewDelegate {
         performSegue(withIdentifier: fromFriendListToGallarySegue, sender: fotos) // соответственно sender это фотос
     }
 }
-
 
 //        NotificationCenter.default.addObserver(self, selector: #selector(catchMessage(_:)), name: NSNotification.Name("sendMeaasageFromAllGroups"), object: nil)
 

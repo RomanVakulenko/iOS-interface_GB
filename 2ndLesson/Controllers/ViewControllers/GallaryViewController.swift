@@ -11,7 +11,7 @@ class GallaryViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     let fotoCollectionViewReuseIdentifier = "fotoCollectionViewReuseIdentifier"
-    var fotoAlbum = [String] ()//инициализировали фотольбом
+    var fotoAlbum = [MyFoto] ()//инициализировали фотольбом  
     
     override func viewDidLoad() {
         super.viewDidLoad()
