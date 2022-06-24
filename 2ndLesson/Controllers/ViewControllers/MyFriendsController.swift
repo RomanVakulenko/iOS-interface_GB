@@ -13,15 +13,15 @@ class MyFriendsController: UIViewController {
     
     
 //8.для работы searchBar нам нужно 2 массива: 1-ый исходный, 2ой-с отфильтрованными данными согласнно введенным символам
-    var sourceFriends = [Friend]() //пусть это будет исходный массив
+    //var sourceFriends = [Friend]() //пусть это будет исходный массив, 1ч51м - убрали, не нужен, т.к. есть Сторадж (удобно, но не безопасно)
     var myFriends = [Friend]() //пусть это будет отфильтрованный
     let customTableViewCellReuseIdentifier = "customTableViewCellReuseIdentifier"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        myFriends = fillData()
-        sourceFriends = myFriends //8.там же где заполняем массив myFriends, там же и заполняем sourceFriends
+        myFriends = Storage.shared.friends //1h51m fillData() заменили на те же самые френды
+        //sourceFriends = myFriends //8.там же где заполняем массив myFriends, там же и заполняем sourceFriends 1ч51м - убрали, не нужен, т.к. есть Сторадж
         tableView.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: customTableViewCellReuseIdentifier)
         tableView.dataSource = self
         tableView.delegate = self
@@ -33,10 +33,10 @@ class MyFriendsController: UIViewController {
 extension MyFriendsController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.isEmpty {
-            myFriends = sourceFriends //если текст searchBar пустой/все стерли, то массивы должны быть равны
+            myFriends = Storage.shared.friends //если текст searchBar пустой/все стерли, то массивы должны быть равны, заменили на тех же френдов из Стораджа
         }
         else {
-            myFriends = sourceFriends.filter ({ friendItem in
+            myFriends = Storage.shared.friends.filter ({ friendItem in // заменили на тех же френдов из Стораджа
                 friendItem.name.lowercased().contains(searchText.lowercased()) //будет проверять содержится ли в нем searchText, если да, то этот элемент попадет в myFriends, .lowercased() - приводим сравнение текстов к нижнему регистру(больше ни на что не влияет)
             })
         }
@@ -53,15 +53,15 @@ extension MyFriendsController: UITableViewDelegate {
         super.prepare(for: segue, sender: sender) //если оверрайд, то всегда используем суперметод
         if segue.identifier == fromFriendListToGallarySegue,   //если АйДи совпадает, то проверяем дальше
            let destinationController = segue.destination as? GallaryViewController,//если целевой контроллер нужного класса(т.е. нужный контроллер)
-           let fotos = sender as? [MyFoto] { //указывая sender as? мы убираем опционал; и если фото это массив из строк, тогда можем добраться до свойства destinationController (св-во fotoAlbum прописали в GallaryViewController), 8L1h21m поставили MyFoto вместо String - это передача, а прием в GallaryViewController - там тоже изменим на MyFoto
+           let fotoArrayIndex = sender as? Int { //указывая sender as? мы убираем опционал; и если фото это массив из строк, тогда можем добраться до свойства destinationController (св-во fotoAlbum прописали в GallaryViewController), 8L1h21m поставили MyFoto вместо String - это передача, а прием в GallaryViewController - там тоже изменим на MyFoto; В связи со Сторадж заменили фотос на аррейИндекс и типа Инт
             
-            destinationController.fotoAlbum = fotos
+            destinationController.fotoAlbumIndex = fotoArrayIndex //в связи со сторокой выше
         }
     }
     //чтобы передать фотольбом при клике на конкретного друга, нам надо передать фотольбом
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let fotos = myFriends[indexPath.row].fotoAlbum //придет индекс той ячейки,на кот.нажали и из массива мы можем достать данные - достаем фотоальбом
-        performSegue(withIdentifier: fromFriendListToGallarySegue, sender: fotos) // соответственно sender это фотос
+        //let fotos = myFriends[indexPath.row].fotoAlbum //придет индекс той ячейки,на кот.нажали и из массива мы можем достать данные - достаем фотоальбом, Убрали в связи со Стораджем
+        performSegue(withIdentifier: fromFriendListToGallarySegue, sender: indexPath.row) // соответственно sender это фотос, 1ч53мСо стораджем давайте теперь передадим не fotoAlbum, а просто индекс
     }
 }
 

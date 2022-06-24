@@ -12,12 +12,15 @@ class GallaryViewController: UIViewController {
     
     let fotoCollectionViewReuseIdentifier = "fotoCollectionViewReuseIdentifier"
     var fotoAlbum = [MyFoto] ()//инициализировали фотольбом  
+    //1ч52м Со Строраджем мы можем передавать не фотоальбом, а только индекс
+    var fotoAlbumIndex = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.register(UINib(nibName: fotoCollectionViewCell, bundle: nil), forCellWithReuseIdentifier: fotoCollectionViewReuseIdentifier)
         collectionView.dataSource = self
         collectionView.delegate = self
+        fotoAlbum = Storage.shared.friends[fotoAlbumIndex].fotoAlbum //1ч55 в связи со Сторадж
     }
     
     override func viewWillAppear(_ animated: Bool) { //перед показом, чтобы обновилась инфа
