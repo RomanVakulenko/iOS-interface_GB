@@ -26,6 +26,7 @@
 		AD59DC842840BC90007A8C82 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD59DC822840BC90007A8C82 /* Main.storyboard */; };
 		AD59DC862840BC91007A8C82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD59DC852840BC91007A8C82 /* Assets.xcassets */; };
 		AD59DC892840BC91007A8C82 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD59DC872840BC91007A8C82 /* LaunchScreen.storyboard */; };
+		AD8E199A2866350F0008AA00 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8E19992866350F0008AA00 /* Storage.swift */; };
 		ADACCEB2285C6C9900F4451A /* LikeControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADACCEB1285C6C9900F4451A /* LikeControlView.swift */; };
 		ADACCEB7285C6D2100F4451A /* LikeControlView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADACCEB6285C6D2100F4451A /* LikeControlView.xib */; };
 		ADC5B84D284FA15500BD95FD /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC5B84C284FA15500BD95FD /* Friend.swift */; };
@@ -56,6 +57,7 @@
 		AD59DC852840BC91007A8C82 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AD59DC882840BC91007A8C82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AD59DC8A2840BC91007A8C82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AD8E19992866350F0008AA00 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		ADACCEB1285C6C9900F4451A /* LikeControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeControlView.swift; sourceTree = "<group>"; };
 		ADACCEB6285C6D2100F4451A /* LikeControlView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LikeControlView.xib; sourceTree = "<group>"; };
 		ADC5B84C284FA15500BD95FD /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				ADC5B84E284FA52B00BD95FD /* cell */,
 				AD0EE3C82859DD250051E931 /* ViewControllers */,
 				AD0EE3C52859DCB60051E931 /* Resources.swift */,
+				AD8E19992866350F0008AA00 /* Storage.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 				AD59DC812840BC90007A8C82 /* LoginViewController.swift in Sources */,
 				AD11067E284A49AB000BEFF7 /* AllGroupController.swift in Sources */,
 				AD110680284A4A87000BEFF7 /* MyFriendsController.swift in Sources */,
+				AD8E199A2866350F0008AA00 /* Storage.swift in Sources */,
 				AD0EE3DA285A283D0051E931 /* Group.swift in Sources */,
 				AD0EE3D8285A24C90051E931 /* MyGroupViewController.swift in Sources */,
 				AD1F2BC92865E72000A681AD /* Foto.swift in Sources */,
