@@ -59,6 +59,7 @@ class LikeControlView: UIView {
     func configure(isLiked: Bool, counter: Int) {
         self.counter = counter
         isPressed = isLiked
+        likeState() //чтобы код не дублировать - я здесь же вызову эту функцию - соответствие принципу DRY 
     }
     
     func likeState () { //ее вызываем по нажатию на лайк
