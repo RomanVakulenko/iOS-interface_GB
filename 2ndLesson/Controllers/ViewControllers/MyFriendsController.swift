@@ -65,7 +65,7 @@ extension MyFriendsController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        let fotos = myFriends[indexPath.row].fotoAlbum //придет индекс той ячейки,на кот.нажали и из массива мы можем достать данные - достаем фотоальбом. 8L1h53m давайте передадим не фотольбом, а индекс
         performSegue(withIdentifier: fromFriendListToGallarySegue, sender: indexPath.row) // соответственно sender это фотос. 8L1h53m давайте передадим не фотольбом, а индекс (вместо fotos)
-    } //закомментили, тк мы сами обрабатываем нажатие (в самой ячейке добавили прозрачную кнопку на ImageView и прокинули IBAction, написав в completion блоке переход по Segue)
+    } //2ч21м закомментили, тк мы сами обрабатываем нажатие (в самой ячейке добавили прозрачную кнопку на ImageView и прокинули IBAction, написав в completion блоке переход по Segue)
 }*/
 
 
