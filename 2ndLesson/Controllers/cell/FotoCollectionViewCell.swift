@@ -20,7 +20,7 @@ class FotoCollectionViewCell: UICollectionViewCell {
     }
 
     
-    func configure (image: UIImage?, isLiked: Bool, likeCounter: Int){ // и тем самым заставляем пользователя каждый раз писать эти поля; если бы написали isLiked: Bool = false  - если пользователь не написал, то было бы это дефолтное - фолс
+    func configure (image: UIImage?, isLiked: Bool, likeCounter: Int){ // и тем самым заставляем пользователя каждый раз писать эти поля; если бы написали isLiked: Bool = false и пользователь бы не написал, то было бы это дефолтное - фолс
         fotoImafeView.image = image
         likeControlView.configure(isLiked: isLiked, counter: likeCounter)
     }
