@@ -17,10 +17,17 @@ extension GallaryViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: fotoCollectionViewReuseIdentifier, for: indexPath) as? FotoCollectionViewCell else {return UICollectionViewCell()}
         
 //        cell.configure(image: UIImage(named: self.fotoAlbum[indexPath.item])) //рисует не просто Петра какого-то, а чтото из фотоальбома; то, откуда он возьмет имя файла, в котором будут лежать фотос
-        let image = UIImage(named: self.fotoAlbum[indexPath.item].url)
-        cell.configure(image: image, isLiked: true, likeCounter: 5, onlikeClosure: {isLikePressed, currentCounter in //1ч40 а уже в GallaryViewController в клоужер прилетают 2 параметра
+        
+        let localFotoAlbumIndex = fotoAlbumIndex
+        let currentFotoAlbum = Storage.shared.friends[localFotoAlbumIndex].fotoAlbum
+        let image = UIImage(named: currentFotoAlbum[indexPath.item].url)
+ 
+        //1ч40 а уже в GallaryViewController в клоужер прилетают 2 параметра
+        cell.configure(image: image, isLiked: currentFotoAlbum[indexPath.item].isLiked, likeCounter: currentFotoAlbum[indexPath.item].likeCounter, onlikeClosure: {isLikePressed, currentCounter in
             print("counter \(currentCounter)")
             print(isLikePressed ? "true" : "false")
+            Storage.shared.friends[localFotoAlbumIndex].fotoAlbum[indexPath.item].isLiked = isLikePressed
+            Storage.shared.friends[localFotoAlbumIndex].fotoAlbum[indexPath.item].likeCounter = currentCounter
         })
         return cell
     }
