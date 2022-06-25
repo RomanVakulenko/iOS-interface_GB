@@ -34,12 +34,12 @@ import UIKit
         let xibView = xib.instantiate(withOwner: self).first as! UIView //тк возвращает массив и мы знаем, что там 1 элемент, то пишем фёст; тк там только UiView, то as"!" forceUnwrap
         return xibView
     }
+    
 // вьюшку, что достали из xib файла, берем и прилепляем на текущую вью
     private func setup() {
         let xibVew = loadFromXIB()
         // берем границы нашей вьюшки и размещаем в них xibView
         xibVew.frame = self.bounds // self, тк наш ЛайкКонтролВью наследник UIView, то мы можем вызвать баундс
-        
         // чтобы xibview следовала за основной вью:
         xibVew.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         self.addSubview(xibVew)
@@ -47,13 +47,14 @@ import UIKit
         counterLabel.text = String(counter) //обрабатываем нажатия
     }
 
-//8.45м если функцию кто-то вызвал(нажал), то мы устанавливаем исходные значения
+//чтобы лайки не перезаписывались хаотично надо добавить конфигурилку(функцию), которая будет их либо чистить, либо устанавливать //8.45м если функцию кто-то вызвал(нажал), то мы устанавливаем исходные значения
     func configure(isLiked: Bool, counter: Int) {
         self.counter = counter
         isPressed = isLiked
+        likeState() //чтобы код не дублировать - я здесь же вызову эту функцию - соответствие принципу DRY
     }
     
-    func likeState () { //ее вызываем по нажатию на лайк
+    func likeState () { //управляет состоянием лайков, ее вызываем по нажатию на лайк
         if isPressed {
             heartImageView.image = UIImage.init(systemName: "heart.fill")
         }
