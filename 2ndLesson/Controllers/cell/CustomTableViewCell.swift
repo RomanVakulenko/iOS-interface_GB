@@ -56,38 +56,37 @@ class CustomTableViewCell: UITableViewCell {
 //            self?.closure? () // переходим на след.Вью посредством клоужера
 //        }
 
-//ДЗ: чтобы картинка сжималась, потом пружиной разжималась и оставалась первоначального масштаба. Вопрос в том, как сделать так, чтобы аватарка возвращалась в исходное состояние до масштабированного уменьшения и ОСТАВАЛАСЬ В ТАКОМ ИСХОДНОМ РАЗМЕРЕ? Пока подогнал тем, что использовал перемещение 0,0 и тогда картинка как исходная
-        UIView.animate(withDuration: 1,
-                             delay: 0,
-                             options: []) { [weak self] in
-            self?.fotoImageView.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
-        } completion: {_ in
-            UIView.animate(withDuration: 0.5,
-                           delay: 0,
-                           usingSpringWithDamping: 0.2, // пружиннаяАнимация,Damping - жесткостьПружины
-                           initialSpringVelocity: 1, //начальная скорость
-                           options: [],
-                           animations: { [weak self] in
-                                guard let self = self else {return} // избавились от опционала
-                                let translation = CGAffineTransform(translationX: 0, y: 0) //сместитьОтносительноИсхТ.(origin)
-                                self.fotoImageView.transform = translation //анимация перемещения
-                                },
-                               completion: { _ in
-                                    self.closure? ()}
-                          )
-                    }
-        }
+//ДЗ: чтобы картинка сжималась, потом пружиной разжималась и оставалась первоначального масштаба. Чтобы аватарка возвращалась в исходное состояние до масштабированного уменьшения и ОСТАВАЛАСЬ В ТАКОМ ИСХОДНОМ РАЗМЕРЕ 1 вариант: использовать перемещение 0,0 и тогда картинка как исходная
+//        UIView.animate(withDuration: 1,
+//                             delay: 0,
+//                             options: []) { [weak self] in
+//            self?.fotoImageView.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
+//        } completion: {_ in
+//            UIView.animate(withDuration: 0.5,
+//                           delay: 0,
+//                           usingSpringWithDamping: 0.2, // пружиннаяАнимация,Damping - жесткостьПружины
+//                           initialSpringVelocity: 1, //начальная скорость
+//                           options: [],
+//                           animations: { [weak self] in
+//                                guard let self = self else {return} // избавились от опционала
+//                                let translation = CGAffineTransform(translationX: 0, y: 0)//использовать перемещение 0,0 и тогда картинка как исходная //сместитьОтносительноИсхТ.(origin)
+//                                self.fotoImageView.transform = translation //анимация перемещения
+//                                },
+//                               completion: { _ in
+//                                    self.closure? ()}
+//                          )
+//                    }
+//        }
 
-        
-//2ой вариант как уменьшить картинку и пружинно вернуть в размер, но после размер остается уменьшенный
-//    UIView.animate(withDuration: 1,
-//                    delay: 0,
-//                    options: [.autoreverse]) { [weak self] in
-//                self?.fotoImageView.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
-//            } completion: { [weak self]_ in
-//                 self?.closure? ()
-//    }
-//
-//
-//}
+//2ой вариант как уменьшить картинку и пружинно вернуть в размер, но после размер остается уменьшенный - solved below
+    UIView.animate(withDuration: 1,
+                    delay: 0,
+                    options: [.autoreverse]) { [weak self] in
+                self?.fotoImageView.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
+
+            } completion: { [weak self]_ in
+                 self?.closure? ()
+                self?.fotoImageView.transform = .identity //Родион: чтобы вернуть в исходный размер картинку, нужно применить .identity
+            }
+    }
 }

@@ -41,6 +41,7 @@ extension MyFriendsController: UISearchBarDelegate {
             })
         }
         tableView.reloadData()
+    
     }
 }
 
@@ -56,7 +57,8 @@ extension MyFriendsController: UITableViewDelegate {
 //           let fotos = sender as? [MyFoto] { //указывая sender as? мы убираем опционал; и если фото это массив из строк, тогда можем добраться до свойства destinationController (св-во fotoAlbum прописали в GallaryViewController), 8L1h22m вместо String вставили MyFoto (передаем делегатом нажатие и счетчик)
             
             let fotoArrayIndex = sender as? Int { //8L1h54m
-            destinationController.fotoAlbumIndex = fotoArrayIndex //8L1h54m 
+            destinationController.fotoAlbumIndex = fotoArrayIndex //8L1h54m
+            
         }
     }
 }
