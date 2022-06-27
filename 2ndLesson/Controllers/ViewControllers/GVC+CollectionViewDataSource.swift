@@ -18,8 +18,8 @@ extension GallaryViewController: UICollectionViewDataSource {
         
 //        cell.configure(image: UIImage(named: self.fotoAlbum[indexPath.item])) //рисует не просто Петра какого-то, а чтото из фотоальбома; то, откуда он возьмет имя файла, в котором будут лежать фотос
         
-        let image = UIImage(named: self.fotoAlbum[indexPath.item].url)
-        cell.configure(image: image, isLiked: true, likeCounter: 5)
+        let image = UIImage(named: self.fotoAlbum[indexPath.item].url)//8.2.1
+        cell.configure(image: image, isLiked: true, likeCounter: 5)//8.2.1 
         return cell
     }
 }

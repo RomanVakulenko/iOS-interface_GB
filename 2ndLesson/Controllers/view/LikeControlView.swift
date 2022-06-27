@@ -11,9 +11,9 @@ import UIKit
 @IBDesignable class LikeControlView: UIView {
     @IBOutlet weak var counterLabel: UILabel!
     @IBOutlet weak var heartImageView: UIImageView!
-   
-    var counter = 0
-    var isPressed = false
+    
+    var counter = 0//8.2.1
+    var isPressed = false//8.2.1
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -47,14 +47,14 @@ import UIKit
         counterLabel.text = String(counter) //обрабатываем нажатия
     }
 
-//чтобы лайки не перезаписывались хаотично надо добавить конфигурилку(функцию), которая будет их либо чистить, либо устанавливать //8.45м если функцию кто-то вызвал(нажал), то мы устанавливаем исходные значения
+//8.2.1 чтобы лайки не перезаписывались хаотично надо добавить конфигурилку(функцию), которая будет их либо чистить, либо устанавливать //8.45м если функцию кто-то вызвал(нажал), то мы устанавливаем исходные значения
     func configure(isLiked: Bool, counter: Int) {
         self.counter = counter
         isPressed = isLiked
         likeState() //чтобы код не дублировать - я здесь же вызову эту функцию - соответствие принципу DRY
     }
     
-    func likeState () { //управляет состоянием лайков, ее вызываем по нажатию на лайк
+    func likeState () { // 8.2.1 управляет состоянием лайков, ее вызываем по нажатию на лайк
         if isPressed {
             heartImageView.image = UIImage.init(systemName: "heart.fill")
         }
