@@ -64,7 +64,7 @@ class LoginViewController: UIViewController {
             }
     }
     
-//1h49m  перенесли из MyFriendsController сюда - понадобится для демонстрации работы с Синглтон
+//8.3.storage 1h49m  перенесли из MyFriendsController сюда - понадобится для демонстрации работы с Синглтон
     func fillData() -> [Friend] {
         let myPhoto = MyFoto(url: "roman1") //8L1h19 изменяем в соответствии со структурой Foto и тогда в этой структуре мы сможем сохранять все лайки
         let friend1 = Friend(name: "Ivan", age: "34", avatar: "roman1", fotoAlbum: [myPhoto])
@@ -123,7 +123,7 @@ class LoginViewController: UIViewController {
         springEffectToLoginButton.initialVelocity = 10
         loginButton.layer.add(springEffectToLoginButton, forKey: nil)
         
-        Storage.shared.friends = fillData() //1ч50м в Сторадж записали френдов
+        Storage.shared.friends = fillData() //8.3.storage 1ч50м в Сторадж записали френдов
         
         //чтобы 3 секунды разлетались поля и заголовок-лейбл и кнопка, а после 3сек совершался бы переход?
         UIView.animateKeyframes(withDuration: 3, delay: 0) { [weak self] in

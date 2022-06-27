@@ -11,16 +11,15 @@ class GallaryViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     let fotoCollectionViewReuseIdentifier = "fotoCollectionViewReuseIdentifier"
-    var fotoAlbum = [MyFoto] ()//инициализировали фотольбом  
-    //1ч52м Со Строраджем мы можем передавать не фотоальбом, а только индекс
-    var fotoAlbumIndex = 0
+    var fotoAlbum = [MyFoto] ()//инициализировали фотольбом
+    var fotoAlbumIndex = 0 //8.3.storage 1ч52м Со Строраджем мы можем передавать не фотоальбом, а только индекс
     
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.register(UINib(nibName: fotoCollectionViewCell, bundle: nil), forCellWithReuseIdentifier: fotoCollectionViewReuseIdentifier)
         collectionView.dataSource = self
         collectionView.delegate = self
-        fotoAlbum = Storage.shared.friends[fotoAlbumIndex].fotoAlbum //1ч55 в связи со Сторадж
+        fotoAlbum = Storage.shared.friends[fotoAlbumIndex].fotoAlbum //8.3.storage 1ч55 в связи со Сторадж
     }
     
     override func viewWillAppear(_ animated: Bool) { //перед показом, чтобы обновилась инфа
