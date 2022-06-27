@@ -18,7 +18,7 @@ extension GallaryViewController: UICollectionViewDataSource {
         
 //        cell.configure(image: UIImage(named: self.fotoAlbum[indexPath.item])) //рисует не просто Петра какого-то, а чтото из фотоальбома; то, откуда он возьмет имя файла, в котором будут лежать фотос
         let image = UIImage(named: self.fotoAlbum[indexPath.item].url)
-        cell.configure(image: image, isLiked: true, likeCounter: 5, onlikeClosure: {isLikePressed, currentCounter in //1ч40 а уже в GallaryViewController в клоужер прилетают 2 параметра
+        cell.configure(image: image, isLiked: true, likeCounter: 5, onlikeClosure: {isLikePressed, currentCounter in // 8.2.2 (нажатый лайк и счет надо передать в GallaryViewController closure5) 1ч40 а уже в GallaryViewController в клоужер прилетают 2 параметра
             print("counter \(currentCounter)")
             print(isLikePressed ? "true" : "false")
         })

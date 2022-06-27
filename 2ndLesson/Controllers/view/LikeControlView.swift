@@ -8,18 +8,16 @@
 import UIKit
 // как делать CustomControl (heart - like)
 
-//8L1h23m надо из LikeControlView передать нажатия и счет лайков - напишем протокол
-
-protocol LikeControlProtocol: AnyObject { //8L1h29m AnyObject - так мы говорим, что протокол только для ссылочного типа - т.е этот протокол смогут использовать какие-то объекты, т.е классы, которые ссылку на себя смогут передать в качестве делегата
+//8.2.2 8L1h23m (LikeControlView передать нажатия и счет лайков_delegate1) - напишем протокол
+protocol LikeControlProtocol: AnyObject { //8L1h29m AnyObject - так мы говорим, что протокол только для ссылочного типа - т.е этот протокол смогут использовать какие-то объекты, т.е классы, которые ссылку на себя смогут передать в качестве делегата.  weak + AnyObject  в протоколе развязывают цикл сильных ссылок
     func pressLike(likeState: Bool, currentCounter: Int)
 }
-
 
 class LikeControlView: UIView {
     @IBOutlet weak var counterLabel: UILabel!
     @IBOutlet weak var heartImageView: UIImageView!
    
-    weak var delegate: LikeControlProtocol? //8L1h26m надо объявить протокол - дать ссылку на него, weak + AnyObject  в протоколе развязывают цикл сильных ссылок
+    weak var delegate: LikeControlProtocol? //8.2.2 (LikeControlView передать нажатия и счет лайков_delegate2) 8L1h26m надо объявить протокол - дать ссылку на него, weak + AnyObject  в протоколе развязывают цикл сильных ссылок
     var counter = 0
     var isPressed = false
     
@@ -82,7 +80,7 @@ class LikeControlView: UIView {
             counter -= 1
         }
         likeState() //8L54m меняется состояние лайка и число
-        delegate?.pressLike(likeState: isPressed, currentCounter: counter) // 1ч30м ? - опциональный, т.к. слабая ссылка
+        delegate?.pressLike(likeState: isPressed, currentCounter: counter) //8.2.2 (LikeControlView передать нажатия и счет лайков_delegate3) 1ч30м ? - опциональный, т.к. слабая ссылка
     }
     
     

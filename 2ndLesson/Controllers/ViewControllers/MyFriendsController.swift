@@ -87,7 +87,6 @@ extension MyFriendsController: UITableViewDelegate {
 
 //        NotificationCenter.default.addObserver(self, selector: #selector(catchMessage(_:)), name: NSNotification.Name("sendMeaasageFromAllGroups"), object: nil)
 
-    
 //    @objc func catchMessage (_ notification: Notification) {
 //        if let text = notification.object as? String {
 //            receiverLabel.text = text
