@@ -15,6 +15,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loadingSecondView: UIView!
     @IBOutlet weak var loadingThirdView: UIView!
     @IBOutlet weak var titleLabelView: UILabel!
+    @IBOutlet weak var yellowView: UIView!
     
     let toTabBarController = "toTabBarController" //делать константу не строкой, чтобы если дальше ошибемся, то Xcode нам подскажет где ошиблись, а в строке в кавычках он не распознает опечатку
     
@@ -88,20 +89,14 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginButtonPressed(_ sender: UIButton) {
-        //    if let login = userNameTextField.text,
-//        login == "root" {
-//            userNameTextField.backgroundColor = UIColor.green
-//        }
-//        else {
-//            userNameTextField.backgroundColor = UIColor.magenta
-//        }
-//    if let password = passwordtextField.text,
-//        password == "123" {
-//        passwordtextField.backgroundColor = UIColor.green
-//        }
-//        else {
-//            passwordtextField.backgroundColor = UIColor.magenta
-//        }
+/*               if let login = userNameTextField.text,
+        login == "root" {
+            userNameTextField.backgroundColor = UIColor.green
+        }
+        else {
+            userNameTextField.backgroundColor = UIColor.magenta
+        }
+*/
         //анимация разлетания полей и Заглавия
         UIView.animate(withDuration: 2) {
             let translationUserNameTextField = CGAffineTransform(translationX: -400, y: 0) //сместитьОтносительноИсхТ.(origin)
@@ -126,12 +121,49 @@ class LoginViewController: UIViewController {
         
         Storage.shared.friends = fillData() //8L1h50m в Storage записали Friendов
         
-//Этот код с asyncAfter работает как и все остальное!!! Спасибо, Родион, за подсказку!
-        loadingViewAnimation() //вызывается анимация перемигающих точек
+/*       loadingViewAnimation() //вызывается анимация перемигающих точек
         //задержка выполнения какого то кода
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.9) { [weak self] in
             self?.performSegue(withIdentifier: self?.toTabBarController ?? "", sender: nil)
         }
+ */
+        
+//9.2.Animation.
+//        UIView.animate(withDuration: 2) { [weak self] in
+//            self?.yellowView.transform = CGAffineTransform(translationX: 150, y: 0)
+//        } completion: { _ in
+//            UIView.animate(withDuration: 2) { [weak self] in
+//                self?.yellowView.transform = CGAffineTransform(translationX: 0, y: 100)
+//            } completion: { _ in
+//                UIView.animate(withDuration: 2) { [weak self] in
+//                    self?.yellowView.transform = CGAffineTransform(translationX: -150, y: 0)
+//                } completion: { [weak self] _ in
+//                    guard let self = self else {return}
+//                    self.performSegue(withIdentifier: self.toTabBarController, sender: nil)
+//                }
+//            }
+//        }
+        
+//32m with Keyframes. Удобнее немного тем, что мы указываем долю времени (withRelativeStartTime) и не надо высчитывать сумму длительности анимации, чтобы была гладкой.
+        UIView.animateKeyframes(withDuration: 9,
+                                delay: 0,
+                                options: []) {
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.3) { //withRelativeStartTime - задержка
+                [weak self] in
+                    self?.yellowView.transform = CGAffineTransform(translationX: 150, y: 0)
+                self?.userNameTextField.transform = CGAffineTransform.init(scaleX: 0.5, y: 0.5) //Сам класс UIView он не привязан к какой-то конкретной Вью - его можно применить к любому объекту/элементу - мы просто вызываем его методы- это пример с текстовым полем
+            }
+            UIView.addKeyframe(withRelativeStartTime: 0.3, relativeDuration: 0.3) {
+                [weak self] in
+                    self?.yellowView.transform = CGAffineTransform(translationX: 0, y: 100)
+            }
+            UIView.addKeyframe(withRelativeStartTime: 0.6, relativeDuration: 0.4) {
+                [weak self] in
+                    self?.yellowView.transform = CGAffineTransform(translationX: -10, y: 0)
+            }
+        } completion: { [weak self] _ in
+            guard let self = self else {return}
+            self.performSegue(withIdentifier: self.toTabBarController, sender: nil)
+        }
     }
 }
-
