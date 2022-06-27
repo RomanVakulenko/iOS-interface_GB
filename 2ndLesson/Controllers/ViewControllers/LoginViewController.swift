@@ -144,7 +144,7 @@ class LoginViewController: UIViewController {
 //            }
 //        }
         
-//32m with Keyframes. Удобнее немного тем, что мы указываем долю времени (withRelativeStartTime) и не надо высчитывать сумму длительности анимации, чтобы была гладкой.
+//32m with Keyframes. Удобнее немного тем, что мы указываем долю времени (withRelativeStartTime) и не надо высчитывать сумму длительности анимации, чтобы была гладкой (но не факт что короче чем простая каскадная).
         UIView.animateKeyframes(withDuration: 9,
                                 delay: 0,
                                 options: []) {
