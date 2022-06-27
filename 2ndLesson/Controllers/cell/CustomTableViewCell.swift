@@ -79,7 +79,7 @@ class CustomTableViewCell: UITableViewCell {
 //        }
 
 //2ой вариант как уменьшить картинку и пружинно вернуть в размер, но после размер остается уменьшенный - solved below
-    UIView.animate(withDuration: 1,
+        UIView.animate(withDuration: 0.6,
                     delay: 0,
                     options: [.autoreverse]) { [weak self] in
                 self?.fotoImageView.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
