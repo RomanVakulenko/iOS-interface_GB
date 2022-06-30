@@ -187,14 +187,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Qn-3u-DrP" customClass="FotoHorizontalView" customModule="_ndLesson" customModuleProvider="target">
-                                <rect key="frame" x="2" y="88" width="410" height="425"/>
+                                <rect key="frame" x="2" y="88" width="410" height="525"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="GhA-UB-jW7"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="GhA-UB-jW7" firstAttribute="bottom" secondItem="7Qn-3u-DrP" secondAttribute="bottom" constant="300" id="JbX-vf-vPw"/>
+                            <constraint firstItem="GhA-UB-jW7" firstAttribute="bottom" secondItem="7Qn-3u-DrP" secondAttribute="bottom" constant="200" id="JbX-vf-vPw"/>
                             <constraint firstItem="7Qn-3u-DrP" firstAttribute="leading" secondItem="GhA-UB-jW7" secondAttribute="leading" constant="2" id="UcK-l9-fTV"/>
                             <constraint firstItem="7Qn-3u-DrP" firstAttribute="top" secondItem="GhA-UB-jW7" secondAttribute="top" id="b8q-NA-czA"/>
                             <constraint firstItem="GhA-UB-jW7" firstAttribute="trailing" secondItem="7Qn-3u-DrP" secondAttribute="trailing" constant="2" id="dfk-Ej-qO1"/>

@@ -11,11 +11,11 @@ class FullScreenFotoViewController: UIViewController {
     
     @IBOutlet weak var fullScreenSwipingView: FotoHorizontalView!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let photos = [UIImage(named: "cat1")!, UIImage(named: "cat2")!, UIImage(named: "dog1")!, UIImage(named: "dog2")!, UIImage(named: "cat3")!]
-        
-        
+        let images = [UIImage(named: "cat1")!, UIImage(named: "cat2")!, UIImage(named: "dog1")!, UIImage(named: "dog2")!]
+        fullScreenSwipingView.setImages(images: images)
     }
-    
 }
+
