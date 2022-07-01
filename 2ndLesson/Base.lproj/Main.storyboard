@@ -164,10 +164,13 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="appLabel" destination="ii0-mo-BdN" id="Et7-6V-dHV"/>
                         <outlet property="loadingFirstView" destination="afz-tm-oBQ" id="P9z-JX-6ef"/>
                         <outlet property="loadingSecondView" destination="9MX-H1-hnR" id="ZUe-yf-Uwp"/>
                         <outlet property="loadingThirdView" destination="jAa-2i-iES" id="Ehx-Yq-LCG"/>
                         <outlet property="loginButton" destination="48g-hP-fPZ" id="27r-1B-wt2"/>
+                        <outlet property="nameTitle" destination="t7E-2Z-Qw4" id="wZy-3Y-1vc"/>
+                        <outlet property="passwordTitle" destination="CAr-3m-ei7" id="Swp-de-wmw"/>
                         <outlet property="passwordtextField" destination="lq9-NG-2Qe" id="1NZ-IN-gH9"/>
                         <outlet property="titleLabelView" destination="GyF-WQ-Txo" id="Nac-78-ppx"/>
                         <outlet property="userNameTextField" destination="kqM-DK-z58" id="iDX-tY-gfm"/>

@@ -137,7 +137,7 @@ class FotoHorizontalView: UIView {
                     return
                 }
                 chooseFlag = true
-                onChange(isLeft: true)
+                onChange(isLeft: true) //вызываем функцию
                 
                 interactiveAnimator.stopAnimation(true) //ТОЛЬКО ОСТАНОВИВ можем переопределять анимацию
                 interactiveAnimator.addAnimations { [weak self] in

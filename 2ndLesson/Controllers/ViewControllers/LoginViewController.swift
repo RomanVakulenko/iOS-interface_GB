@@ -15,16 +15,15 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loadingSecondView: UIView!
     @IBOutlet weak var loadingThirdView: UIView!
     @IBOutlet weak var titleLabelView: UILabel!
+    @IBOutlet weak var nameTitle: UILabel!
+    @IBOutlet weak var passwordTitle: UILabel!
+    @IBOutlet weak var appLabel: UIImageView!
     
     let toTabBarController = "toTabBarController" //делать константу не строкой, чтобы если дальше ошибемся, то Xcode нам подскажет где ошиблись, а в строке в кавычках он не распознает опечатку
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-//Вариант с 3ей лекции:
-//        let recognizer = UITapGestureRecognizer(target: self, action: #selector(onTap))
-//        self.view.addGestureRecognizer(recognizer)
-
+    
 //7урок:сделаем перемигающие точки загрузки:
         loadingFirstView.alpha = 0
         loadingSecondView.alpha = 0
@@ -37,10 +36,8 @@ class LoginViewController: UIViewController {
         let recognizerTwo = UILongPressGestureRecognizer(target: self, action: #selector(onPush))
         self.view.addGestureRecognizer(recognizerTwo)
     }
-    
-//По долгому нажатию поле Name заполнится текстом "longPressGestureWorks" и добавил архив в Гит
-    @objc func onPush () {
-//        print("tap") - Варинат с лекции
+
+    @objc func onPush () { //По долгому нажатию поле Name заполнится текстом "longPressGestureWorks"
         userNameTextField.text = "longPressGestureWorks"
     }
     
@@ -104,30 +101,37 @@ class LoginViewController: UIViewController {
 //        }
         //анимация разлетания полей и Заглавия
         UIView.animate(withDuration: 2) {
-            let translationUserNameTextField = CGAffineTransform(translationX: -400, y: 0) //сместитьОтносительноИсхТ.(origin)
-            let translationPasswordtextField = CGAffineTransform(translationX: 400, y: 0)
+            let translationAppLabel = CGAffineTransform(translationX: 0, y: -140)
+            
+            let translationNameTitle = CGAffineTransform(translationX: -400, y: 0)
+            let translationUserNameTextField = CGAffineTransform(translationX: -400, y: 0) //сместитьОтноcИсхТ.(origin)
+            let translationPasswordtextField = CGAffineTransform(translationX: 500, y: 0)
+            let translationPasswordTitle = CGAffineTransform(translationX: 500, y: 0)
             let translationTitleLabelView = CGAffineTransform(translationX: 0, y: -140)
             
             self.userNameTextField.transform = translationUserNameTextField //анимация перемещения
             self.passwordtextField.transform = translationPasswordtextField
             self.titleLabelView.transform = translationTitleLabelView
+            self.nameTitle.transform = translationNameTitle
+            self.passwordTitle.transform = translationPasswordTitle
+            self.appLabel.transform = translationAppLabel
         }
         
         //Анимация слоя СALayer; пружиной (the spring effect) падает кнопка "Login"
         let springEffectToLoginButton = CASpringAnimation.init(keyPath: "position.y")
-        springEffectToLoginButton.toValue  = 500 // финишная позицию
+        springEffectToLoginButton.toValue  = 370 // финишная позицию
         springEffectToLoginButton.duration = 2.4 // сек
-        springEffectToLoginButton.mass = 3
+        springEffectToLoginButton.mass = 4
         springEffectToLoginButton.stiffness = 90 //
         springEffectToLoginButton.damping = 15 //затухание
-        springEffectToLoginButton.initialVelocity = 10
+        springEffectToLoginButton.initialVelocity = 5
         loginButton.layer.add(springEffectToLoginButton, forKey: nil)
   
         
         Storage.shared.friends = fillData() //8L1h50m в Storage записали Friendов
         
-//Этот код с asyncAfter работает как и все остальное!!! Спасибо, Родион, за подсказку!
         loadingViewAnimation() //вызывается анимация перемигающих точек
+        
         //задержка выполнения какого то кода
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.9) { [weak self] in
             self?.performSegue(withIdentifier: self?.toTabBarController ?? "", sender: nil)
