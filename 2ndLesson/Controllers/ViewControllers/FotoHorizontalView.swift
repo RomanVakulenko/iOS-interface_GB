@@ -55,7 +55,7 @@ class FotoHorizontalView: UIView {
         
         secondaryImageView.backgroundColor = UIColor.lightGray
         secondaryImageView.frame = self.bounds
-        secondaryImageView.transform = CGAffineTransform(translationX: UIScreen.main.bounds.width, y: 0) //установили сразу справа за экраном
+        secondaryImageView.transform = CGAffineTransform(translationX: UIScreen.main.bounds.width+100, y: 0) //установили сразу справа за экраном
         addSubview(secondaryImageView)
         
         customPageView.backgroundColor = UIColor.clear //установим точки перелистывания
@@ -81,10 +81,10 @@ class FotoHorizontalView: UIView {
         
         if isLeft { //при свайпе влево
             self.secondaryImageView.image = images[self.currentIndex + 1] //2аяВью берет следущее фото
-            self.secondaryImageView.transform = CGAffineTransform(translationX: UIScreen.main.bounds.width, y: 0) // ставим справа за экраном
+            self.secondaryImageView.transform = CGAffineTransform(translationX: UIScreen.main.bounds.width+100, y: 0) // ставим справа за экраном
         }
         else {
-            self.secondaryImageView.transform = CGAffineTransform(translationX: -UIScreen.main.bounds.width, y: 0) // ставим слева за экраном
+            self.secondaryImageView.transform = CGAffineTransform(translationX: -UIScreen.main.bounds.width-100, y: 0) // ставим слева за экраном
             self.secondaryImageView.image = images[currentIndex - 1] //2аяВью берет предыдущее фото
         }
     }
@@ -99,7 +99,7 @@ class FotoHorizontalView: UIView {
             self.currentIndex -= 1
         }
         self.mainImageView.image = self.images[self.currentIndex] // как прочесть? зачем селфы
-        self.bringSubviewToFront(self.mainImageView) // mainImageView будет поверх
+        self.bringSubviewToFront(self.secondaryImageView) // mainImageView будет поверх
         self.customPageView.currentPage = self.currentIndex
     }
     
@@ -114,13 +114,14 @@ class FotoHorizontalView: UIView {
             self.mainImageView.transform = .identity // mainImageView в начальное ориджин состояние
             self.mainImageView.image = images[currentIndex]
             self.secondaryImageView.transform = .identity // в начальное ориджин состояние
-            self.bringSubviewToFront(self.mainImageView)
+            self.bringSubviewToFront(self.secondaryImageView)
             
             interactiveAnimator?.startAnimation()
-            interactiveAnimator = UIViewPropertyAnimator(duration: 0.3,
+            interactiveAnimator = UIViewPropertyAnimator(duration: 1,
                                                          curve: .easeInOut,
                                                          animations: { [weak self] in
-                                                            self?.mainImageView.transform = CGAffineTransform(translationX: -UIScreen.main.bounds.width, y: 0)//ДвигВлевоЗаЭкран
+//                                                            self?.mainImageView.transform = CGAffineTransform(translationX: -UIScreen.main.bounds.width, y: 0)//ДвигВлевоЗаЭкран
+                self?.mainImageView.transform = CGAffineTransform(scaleX: 0.3, y: 0.3)
                                                          })
             interactiveAnimator.pauseAnimation() //ставим анимацию на паузу (тк за дальнейшее отвечает другой case)
             isLeftSwipe = false
@@ -141,7 +142,8 @@ class FotoHorizontalView: UIView {
                 
                 interactiveAnimator.stopAnimation(true) //ТОЛЬКО ОСТАНОВИВ можем переопределять анимацию
                 interactiveAnimator.addAnimations { [weak self] in
-                    self?.mainImageView.transform = CGAffineTransform(translationX: -UIScreen.main.bounds.width, y: 0)
+//                    self?.mainImageView.transform = CGAffineTransform(translationX: -UIScreen.main.bounds.width, y: 0)
+                    self?.mainImageView.transform = CGAffineTransform(scaleX: 0.3, y: 0.3)
                     self?.secondaryImageView.transform = .identity
                 }
                 interactiveAnimator.addCompletion({ [weak self] _ in
@@ -162,7 +164,8 @@ class FotoHorizontalView: UIView {
                 onChange(isLeft: false)
                 interactiveAnimator.stopAnimation(true) //ТОЛЬКО ОСТАНОВИВ можем переопределять анимацию
                 interactiveAnimator.addAnimations { [weak self] in
-                    self?.mainImageView.transform = CGAffineTransform(translationX: UIScreen.main.bounds.width, y: 0)
+//                    self?.mainImageView.transform = CGAffineTransform(translationX: UIScreen.main.bounds.width, y: 0)
+                    self?.mainImageView.transform = CGAffineTransform(scaleX: 0.3, y: 0.3)
                     self?.secondaryImageView.transform = .identity
                 }
                 interactiveAnimator.addCompletion({ [weak self] _ in
@@ -199,10 +202,10 @@ class FotoHorizontalView: UIView {
                     self?.mainImageView.transform = .identity
                     guard let weakSelf = self else {return}
                     if weakSelf.isLeftSwipe {
-                        self?.secondaryImageView.transform = CGAffineTransform(translationX: UIScreen.main.bounds.width, y: 0)
+                        self?.secondaryImageView.transform = CGAffineTransform(translationX: UIScreen.main.bounds.width+100, y: 0)
                     }
                     if weakSelf.isRightSwipe {
-                        self?.secondaryImageView.transform = CGAffineTransform(translationX: -UIScreen.main.bounds.width, y: 0)
+                        self?.secondaryImageView.transform = CGAffineTransform(translationX: -UIScreen.main.bounds.width-100, y: 0)
                     }
                 }
                 
