@@ -384,7 +384,7 @@
         <!--MyFriendList-->
         <scene sceneID="HHl-qh-t2Z">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zx5-sf-osr" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zx5-sf-osr" customClass="CustomNavigationController" customModule="_ndLesson" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="MyFriendList" image="person" catalog="system" selectedImage="person.fill" id="NNY-iv-iQc"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="CT9-IQ-fOq">
