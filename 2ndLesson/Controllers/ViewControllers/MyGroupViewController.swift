@@ -42,19 +42,17 @@ class MyGroupViewController: UIViewController {
     }
 
     
-    //с этой строки и до 62 - это для ДЗ для 10урока (по заданию 9ого урока№1)
+//с этой строки и до 60 - это ДЗ для 10урока (по заданию 9ого урока№1)
     override func viewDidAppear(_ animated: Bool) { //вызывается после того, как ViewController появляется на экране
-//        plusButtonToAllGroups.isHidden = false //сначала кнопка показывается - выдает ошибку
         super.viewDidAppear(animated)
     }
     
     override func viewWillDisappear(_ animated: Bool) {//вызывается до того, как произойдет переход к следующему View Controller’у и исходный ViewController будет удален с экрана
-//        plusButtonToAllGroups.isHidden = true //перед иcчезанием контроллера спрячем кнопку - выдает ошибку
         super.viewWillDisappear(animated)// чтобы при переходе назад вернулось обратно
     }
 }
 
-//xcode вначале Предлагал пофиксить и подписать РедVC на класс UINavigationControllerDelegate -лучше сделаем extension:
+//xcode вначале Предлагал пофиксить и подписать MyGroupViewController на класс UINavigationControllerDelegate -лучше сделаем extension:
 extension MyGroupViewController: UINavigationControllerDelegate {
     func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return Animator()

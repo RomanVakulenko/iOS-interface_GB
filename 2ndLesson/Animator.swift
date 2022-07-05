@@ -28,14 +28,13 @@ class Animator: NSObject, UIViewControllerAnimatedTransitioning {
         
         let destinationFrame = sourceVC.view.frame //запомнилиСозд.будущуюРамку для 2ой Вью такуюЖеКак sourceVC.view.frame
         
-        destinationVC.view.transform = CGAffineTransform(rotationAngle: -(.pi/2)) //2ую повернем на 90градусов противЧасовой
+        destinationVC.view.transform = CGAffineTransform(rotationAngle: -(.pi/2)) //2уюПовернем на 90град противЧасовой
         destinationVC.view.frame = upRightFrame //2ую Вью установим в правое верхнее местоположение, размером с 0,0)
         
-        let upLeftFrame = CGRect(x: -0.5*containerFrame.height, y: -0.5*containerFrame.width, width: 0.5*containerFrame.width, height: 0.5*containerFrame.height) // задали верхнееЛевое расположение и его размеры - куда придет 1ая Вью
+        let upLeftFrame = CGRect(x: -0.5*containerFrame.height, y: -0.5*containerFrame.width, width: 0, height: 0) // задали верхнееЛевое расположение и его размеры 0,0, куда анимированно придет 1ая Вью
         
-        //мы должны соблюсти соответствие длительности наших анимаций с заявленной изначальной длительностью анимации
+        //надо соблюсти соответствие длительности наших анимаций с заявленной изначальной длительностью анимации
         let duration = transitionDuration(using: transitionContext) // или просто = durationTimeInterval
-        
         UIView.animate(withDuration: duration) {// соблюли соответствие длительности наших анимаций
             
             sourceVC.view.transform = CGAffineTransform(rotationAngle: .pi / 2)//анимируем по часовой на 90град
@@ -46,7 +45,7 @@ class Animator: NSObject, UIViewControllerAnimatedTransitioning {
             
         }  completion: { isOk in
                 transitionContext.completeTransition(isOk)
-//                sourceVC.view.transform = .identity //возвращает 1ую Вью в начальное место
+                sourceVC.view.transform = .identity //возвращает 1ую Вью в начальное место
             }
         }
     }
