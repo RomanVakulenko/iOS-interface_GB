@@ -342,6 +342,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="plusButtonToAllGroups" destination="Qgh-az-a4A" id="hXk-NZ-ESt"/>
                         <outlet property="tableView" destination="FsZ-zq-CSr" id="d5l-oo-MF2"/>
                     </connections>
                 </viewController>

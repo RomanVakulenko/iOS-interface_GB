@@ -9,11 +9,10 @@ import UIKit
 
 class MyGroupViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var plusButtonToAllGroups: UIBarButtonItem! //10
     
-    var groups = [Group]() //создали массив из групп и инициализируем его сразу - во viewDidLoad вызовем fillData и передадим в groups
-    let customTableViewCellReuse = "customTableViewCellReuse"
-    
-    override func viewDidLoad() {
+    override func viewDidLoad() {//вью ViewController’a созданa, и вы можете быть уверены, что все Outlets на месте
+        
         super.viewDidLoad()
         tableView.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: customTableViewCellReuse)
         tableView.dataSource = self
@@ -21,6 +20,10 @@ class MyGroupViewController: UIViewController {
         
         // а тут мы подпишемся на нотификейшн
         NotificationCenter.default.addObserver(self, selector: #selector(didPressToGroup(_:)), name: Notification.Name("pressToGroup"), object: nil)//обозревателем указываем этотКласс, селектор - это функция,кот. будет обрабатывать, нейм - на какое событие мы подписываемся, объект мы лучше поймаем в функции, чтобы применить какую-либо логику;
+        
+        
+        super.viewDidLoad()
+        self.navigationController?.delegate = self //указываем navigationControllerу брать всю анимацию из РедVC
     }
     
     @objc func didPressToGroup(_ notification: Notification) {
@@ -37,18 +40,42 @@ class MyGroupViewController: UIViewController {
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
-}
+
     
+    //с этой строки и до 62 - это для ДЗ для 10урока (по заданию 9ого урока№1)
+    override func viewDidAppear(_ animated: Bool) { //вызывается после того, как ViewController появляется на экране
+//        plusButtonToAllGroups.isHidden = false //сначала кнопка показывается - выдает ошибку
+        super.viewDidAppear(animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {//вызывается до того, как произойдет переход к следующему View Controller’у и исходный ViewController будет удален с экрана
+//        plusButtonToAllGroups.isHidden = true //перед иcчезанием контроллера спрячем кнопку - выдает ошибку
+        super.viewWillDisappear(animated)// чтобы при переходе назад вернулось обратно
+    }
+}
+
+//xcode вначале Предлагал пофиксить и подписать РедVC на класс UINavigationControllerDelegate -лучше сделаем extension:
+extension MyGroupViewController: UINavigationControllerDelegate {
+    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return Animator()
+    }
+}
+
+
+
+var groups = [Group]() //создали массив из групп и инициализируем его сразу - во viewDidLoad вызовем fillData и передадим в groups
+let customTableViewCellReuse = "customTableViewCellReuse"
+
 extension MyGroupViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return groups.count
     }
     
-        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: customTableViewCellReuse, for: indexPath) as? CustomTableViewCell else { return UITableViewCell() }
         
-        cell.configure(self.groups[indexPath.row])
+        cell.configure(groups[indexPath.row])
         return cell
     }
 }
@@ -57,9 +84,9 @@ extension MyGroupViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
     }
-//  вместо Сеги как в MyFriendViewController используем другой способ - через нотификейшн
     
+    //  вместо Сеги как в MyFriendViewController используем другой способ - через нотификейшн
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-     
+        
     }
 }

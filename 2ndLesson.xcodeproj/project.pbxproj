@@ -27,6 +27,7 @@
 		AD59DC842840BC90007A8C82 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD59DC822840BC90007A8C82 /* Main.storyboard */; };
 		AD59DC862840BC91007A8C82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD59DC852840BC91007A8C82 /* Assets.xcassets */; };
 		AD59DC892840BC91007A8C82 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD59DC872840BC91007A8C82 /* LaunchScreen.storyboard */; };
+		AD8943F428732A79003FBBE5 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8943F328732A79003FBBE5 /* Animator.swift */; };
 		ADAC993D286D87A9000FC8A8 /* FullScreenFotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAC993C286D87A9000FC8A8 /* FullScreenFotoViewController.swift */; };
 		ADAC993F286D96F9000FC8A8 /* FotoHorizontalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAC993E286D96F9000FC8A8 /* FotoHorizontalView.swift */; };
 		ADAC9941286D9704000FC8A8 /* FotoHorizontalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADAC9940286D9704000FC8A8 /* FotoHorizontalView.xib */; };
@@ -61,6 +62,7 @@
 		AD59DC852840BC91007A8C82 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AD59DC882840BC91007A8C82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AD59DC8A2840BC91007A8C82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AD8943F328732A79003FBBE5 /* Animator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
 		ADAC993C286D87A9000FC8A8 /* FullScreenFotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FullScreenFotoViewController.swift; path = 2ndLesson/Controllers/view/FullScreenFotoViewController.swift; sourceTree = SOURCE_ROOT; };
 		ADAC993E286D96F9000FC8A8 /* FotoHorizontalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FotoHorizontalView.swift; path = 2ndLesson/Controllers/ViewControllers/FotoHorizontalView.swift; sourceTree = SOURCE_ROOT; };
 		ADAC9940286D9704000FC8A8 /* FotoHorizontalView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FotoHorizontalView.xib; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				ADC5B84B284FA11D00BD95FD /* Models */,
 				ADC5B84A284FA10900BD95FD /* Controllers */,
 				AD59DC822840BC90007A8C82 /* Main.storyboard */,
+				AD8943F328732A79003FBBE5 /* Animator.swift */,
 				AD59DC852840BC91007A8C82 /* Assets.xcassets */,
 				AD59DC872840BC91007A8C82 /* LaunchScreen.storyboard */,
 				AD59DC8A2840BC91007A8C82 /* Info.plist */,
@@ -270,6 +273,7 @@
 				AD59DC7D2840BC90007A8C82 /* AppDelegate.swift in Sources */,
 				AD0EE3CA2859DDE00051E931 /* MFC+TableViewDataSource.swift in Sources */,
 				AD0EE3C12859DAC30051E931 /* FotoCollectionViewCell.swift in Sources */,
+				AD8943F428732A79003FBBE5 /* Animator.swift in Sources */,
 				AD59DC7F2840BC90007A8C82 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

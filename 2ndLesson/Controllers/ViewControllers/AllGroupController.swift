@@ -32,7 +32,7 @@ class AllGroupController: UIViewController {
         tableView.delegate = self
     }
 }
-    
+
 extension AllGroupController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
@@ -52,17 +52,16 @@ extension AllGroupController: UITableViewDelegate {// отсюда будем р
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
     }
-//  вместо Сеги как в MyFriendViewController используем другой способ - через нотификейшн
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//     нажали на картинку и пришла к нам группа
+    //  вместо Сеги как в MyFriendViewController используем другой способ - через нотификейшн
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {//нажали на картинку и пришла к нам группа
         let group = groups[indexPath.item]
         NotificationCenter.default.post(name: Notification.Name("pressToGroup"), object: group)
     }
 }
 
-     
-    
+
+
 // С урока №3 про Notification
 //    @IBAction func pressSendButton(_ sender: Any) {
 //        if let text =   messageTextField.text {
