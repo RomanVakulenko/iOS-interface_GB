@@ -51,7 +51,6 @@ class MyGroupViewController: UIViewController {
         super.viewWillDisappear(animated)// чтобы при переходе назад вернулось обратно
     }
 }
-
 //xcode вначале Предлагал пофиксить и подписать MyGroupViewController на класс UINavigationControllerDelegate -лучше сделаем extension:
 extension MyGroupViewController: UINavigationControllerDelegate {
     func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
