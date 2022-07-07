@@ -8,9 +8,9 @@
 import UIKit
 //10. 2ч01м создали файл subclass UINavigationController, в мейне переодпределяем класс на наш CustomNavigationController
 class CustomNavigationController: UINavigationController {
-
+    
     let interactiveTransition = InteractiveTransition() //для интерактивнойАнимации нам нужен класс InteractiveTransition - создали файл
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self//"закручиваем делегат на сам CustomNavigationController",можно было "закрутить" на любой другой вьюконтроллер
@@ -26,9 +26,18 @@ extension CustomNavigationController: UINavigationControllerDelegate {
     }
     
     func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        if operation == .push { //если пуш, то мы запоминаем этот VC, на него налип UIPanGestureRecognizer  и рекогнайзер активирует стандартную анимацию(@objc func onPan...), т.е. интерактивная анимация в данном конкретном случае (.push) будет только при переходе назад
+        //        if operation == .push { //если пуш, то мы запоминаем этот VC, на него налип UIPanGestureRecognizer  и рекогнайзер активирует стандартную анимацию(@objc func onPan...), т.е. интерактивная анимация в данном конкретном случае (.push) будет только при переходе назад
+        //            interactiveTransition.viewController = toVC
+        //        }
+        //        return Animation() //Animator() //прописываем анимацию отдельно в файле Animation, а в файле InteractiveTransition - покадровость
+        //    }
+        if operation == .push {
             interactiveTransition.viewController = toVC
+            return CustomPushAnimator()
+        } else if operation == .pop {
+            interactiveTransition.viewController = fromVC
+            return CustomPopAnimator()
         }
-        return Animation() //Animator() //прописываем анимацию отдельно в файле Animation, а в файле InteractiveTransition - покадровость
-    }
+        return nil }
 }
+

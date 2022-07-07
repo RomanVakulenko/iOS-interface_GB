@@ -42,11 +42,10 @@ class MyGroupViewController: UIViewController {
     }
 
     
-//с этой строки и до 60 - это ДЗ для 10урока (по заданию 9ого урока№1)
+//с этой строки и до 58 - это ДЗ для 10урока (по заданию 9ого урока№1)
     override func viewDidAppear(_ animated: Bool) { //вызывается после того, как ViewController появляется на экране
         super.viewDidAppear(animated)
     }
-    
     override func viewWillDisappear(_ animated: Bool) {//вызывается до того, как произойдет переход к следующему View Controller’у и исходный ViewController будет удален с экрана
         super.viewWillDisappear(animated)// чтобы при переходе назад вернулось обратно
     }

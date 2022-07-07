@@ -30,7 +30,8 @@
 		AD8943F428732A79003FBBE5 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8943F328732A79003FBBE5 /* Animator.swift */; };
 		AD894416287480FF003FBBE5 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD894415287480FF003FBBE5 /* CustomNavigationController.swift */; };
 		AD8944182874830A003FBBE5 /* InteractiveTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8944172874830A003FBBE5 /* InteractiveTransition.swift */; };
-		AD89441B28748C3B003FBBE5 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD89441A28748C3B003FBBE5 /* Animation.swift */; };
+		AD89441B28748C3B003FBBE5 /* CustomPushAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD89441A28748C3B003FBBE5 /* CustomPushAnimator.swift */; };
+		AD961D1B2876EC9500B4A57B /* CustomPopAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD961D1A2876EC9500B4A57B /* CustomPopAnimator.swift */; };
 		ADAC993D286D87A9000FC8A8 /* FullScreenFotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAC993C286D87A9000FC8A8 /* FullScreenFotoViewController.swift */; };
 		ADAC993F286D96F9000FC8A8 /* FotoHorizontalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAC993E286D96F9000FC8A8 /* FotoHorizontalView.swift */; };
 		ADAC9941286D9704000FC8A8 /* FotoHorizontalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADAC9940286D9704000FC8A8 /* FotoHorizontalView.xib */; };
@@ -68,7 +69,8 @@
 		AD8943F328732A79003FBBE5 /* Animator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
 		AD894415287480FF003FBBE5 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomNavigationController.swift; path = 2ndLesson/PropertyNavigationAnimation/CustomNavigationController.swift; sourceTree = SOURCE_ROOT; };
 		AD8944172874830A003FBBE5 /* InteractiveTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveTransition.swift; sourceTree = "<group>"; };
-		AD89441A28748C3B003FBBE5 /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
+		AD89441A28748C3B003FBBE5 /* CustomPushAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPushAnimator.swift; sourceTree = "<group>"; };
+		AD961D1A2876EC9500B4A57B /* CustomPopAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopAnimator.swift; sourceTree = "<group>"; };
 		ADAC993C286D87A9000FC8A8 /* FullScreenFotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FullScreenFotoViewController.swift; path = 2ndLesson/Controllers/view/FullScreenFotoViewController.swift; sourceTree = SOURCE_ROOT; };
 		ADAC993E286D96F9000FC8A8 /* FotoHorizontalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FotoHorizontalView.swift; path = 2ndLesson/Controllers/ViewControllers/FotoHorizontalView.swift; sourceTree = SOURCE_ROOT; };
 		ADAC9940286D9704000FC8A8 /* FotoHorizontalView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FotoHorizontalView.xib; sourceTree = "<group>"; };
@@ -144,7 +146,8 @@
 		AD89441928748323003FBBE5 /* PropertyNavigationAnimation */ = {
 			isa = PBXGroup;
 			children = (
-				AD89441A28748C3B003FBBE5 /* Animation.swift */,
+				AD89441A28748C3B003FBBE5 /* CustomPushAnimator.swift */,
+				AD961D1A2876EC9500B4A57B /* CustomPopAnimator.swift */,
 				AD8944172874830A003FBBE5 /* InteractiveTransition.swift */,
 				AD894415287480FF003FBBE5 /* CustomNavigationController.swift */,
 			);
@@ -287,13 +290,14 @@
 				ADC5B84D284FA15500BD95FD /* Friend.swift in Sources */,
 				AD0EE3D22859E93D0051E931 /* GVC+CollectionViewDataSource.swift in Sources */,
 				ADAC993F286D96F9000FC8A8 /* FotoHorizontalView.swift in Sources */,
+				AD961D1B2876EC9500B4A57B /* CustomPopAnimator.swift in Sources */,
 				AD0EE3C42859DB300051E931 /* GallaryViewController.swift in Sources */,
 				AD59DC7D2840BC90007A8C82 /* AppDelegate.swift in Sources */,
 				AD0EE3CA2859DDE00051E931 /* MFC+TableViewDataSource.swift in Sources */,
 				AD0EE3C12859DAC30051E931 /* FotoCollectionViewCell.swift in Sources */,
 				AD8943F428732A79003FBBE5 /* Animator.swift in Sources */,
 				AD59DC7F2840BC90007A8C82 /* SceneDelegate.swift in Sources */,
-				AD89441B28748C3B003FBBE5 /* Animation.swift in Sources */,
+				AD89441B28748C3B003FBBE5 /* CustomPushAnimator.swift in Sources */,
 				AD8944182874830A003FBBE5 /* InteractiveTransition.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
