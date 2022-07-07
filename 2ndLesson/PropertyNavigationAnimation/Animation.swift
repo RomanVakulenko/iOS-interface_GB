@@ -17,9 +17,9 @@ class Animation: NSObject, UIViewControllerAnimatedTransitioning {
               let destination = transitionContext.viewController(forKey: .to) else {return}
         
         transitionContext.containerView.addSubview(destination.view) //добавили ссылкой 2ую вью(страницаКонкр.Друга)
-        destination.view.frame = source.view.frame //запомнили границы
         
-        destination.view.transform = CGAffineTransform(translationX: source.view.frame.width, y: 0)//УстСлевоЗаЭкран
+        destination.view.frame = source.view.frame //запомнили границы
+        destination.view.transform = CGAffineTransform(translationX: -source.view.frame.width, y: 0)//УстСлевоЗаЭкран
         
         //управляемая по длительности анимирования элементов анимация
         UIView.animateKeyframes(withDuration: self.transitionDuration(using: transitionContext),
@@ -27,7 +27,7 @@ class Animation: NSObject, UIViewControllerAnimatedTransitioning {
                                 options: .calculationModeCubicPaced) {
             UIView.addKeyframe(withRelativeStartTime: 0,
                                relativeDuration: 0.5) {
-                let translation = CGAffineTransform(translationX: -300, y: 0)
+                let translation = CGAffineTransform(translationX: 300, y: 0)
                 let scale = CGAffineTransform(scaleX: 0.85, y: 0.85)
                 source.view.transform = translation.concatenating(scale)//1уюВью сдвигаем вправо и уменьшаем
             }
