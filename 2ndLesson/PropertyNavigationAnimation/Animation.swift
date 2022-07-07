@@ -33,8 +33,8 @@ class Animation: NSObject, UIViewControllerAnimatedTransitioning {
             }
             UIView.addKeyframe(withRelativeStartTime: 0.5,
                                relativeDuration: 0.6) {
-                let translation = CGAffineTransform(translationX: source.view.frame.width / 2, y: 0)
-                let scale = CGAffineTransform(scaleX: 1.1, y: 1.1)
+                let translation = CGAffineTransform(translationX: -source.view.frame.width / 2, y: 0)
+                let scale = CGAffineTransform(scaleX: 1.2, y: 1.2)
                 destination.view.transform = translation.concatenating(scale)//2уюВью передвигаем вправо и увеличиваем
             }
             UIView.addKeyframe(withRelativeStartTime: 1.1,
