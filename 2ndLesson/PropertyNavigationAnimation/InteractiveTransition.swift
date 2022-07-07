@@ -34,13 +34,13 @@ class InteractiveTransition: UIPercentDrivenInteractiveTransition {
             var translation = recognizer.translation(in: recognizer.view)
             
             if translation.x > 0 && (!isRightSwipe) {
-                if translation.x < 0 {translation.x = -translation.x} //определяем влево/вправо - куда ведет палец
+//                if translation.x < 0 {translation.x = -translation.x} //определяем влево/вправо - куда ведет палец
                 let percentComplete = translation.x / (recognizer.view?.frame.width ?? 1)
                 let progress = max(0, min(1, percentComplete))
                 if progress > 0.3 {complete = true} //если больше 0.3, то завершаем анимацию, если нет - то возвращаем
                 self.update(progress)
             }
-// Родион, почему закомментированное не сработало?
+// Родион, почему закомментированное ниже не сработало (до else пытался так решить вопрос с левым свайпом)?
 //            if isRightSwipe && (translation.x < 0) {return}//где ткнул палец - нулевая точка, пользователь может двигаться и вправо и влево от неё. От середины свайп немного влево, а затем до края вправо и, благодаря условию, Вью должна возвращаться в исходное место плавно, несмотря на то, что пользователь ведёт палец дальше вправо(был бы лаг резкий скачок при отображении) - в случае с листанием фоток это работало, а как сдесь сделать так, чтобы на левый свайп не было реакции, даже если потом передумал и повел вправо - в общем как сдлетаь то же самое(что работало с истанием фоток) только здесь при анимации контроллеров?
 //            isRightSwipe = false
             else {
