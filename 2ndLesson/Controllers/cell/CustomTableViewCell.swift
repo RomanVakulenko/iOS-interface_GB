@@ -21,7 +21,7 @@ class CustomTableViewCell: UITableViewCell {
         fotoImageView.image = nil
         nameLabel.text = nil
         descriptionLabel.text = nil
-        closure = nil //обнуляем 8L2h28
+        closure = nil           //обнуляем 8L2h28
     }
     
     func configure (image: UIImage?, name: String?, description: String?, closure: @escaping () -> Void) {//8L2h27 клоужер для факта нажатия
@@ -29,10 +29,10 @@ class CustomTableViewCell: UITableViewCell {
         nameLabel.text = name
         descriptionLabel.textColor = #colorLiteral(red: 0.01680417731, green: 0.1983509958, blue: 1, alpha: 1)
         descriptionLabel.text = description
-        self.closure = closure //8L2h28
+        self.closure = closure  //8L2h28
         
 //скругляем края у картинок, а тень применяем ко Вью (в котором лежит сама аватарка-UIImage)
-        fotoImageView.layer.cornerRadius = 30 // cutting corners with radius
+        fotoImageView.layer.cornerRadius = 65 // cutting corners with radius
         viewForShadowFoto.layer.shadowColor = UIColor.gray.cgColor
         viewForShadowFoto.layer.shadowOffset = CGSize(width: 8, height: 6) //смещение
         viewForShadowFoto.layer.shadowRadius = 5 //  размытие тени
@@ -86,7 +86,7 @@ class CustomTableViewCell: UITableViewCell {
 
             } completion: { [weak self]_ in
                  self?.closure? ()
-                self?.fotoImageView.transform = .identity //Родион: чтобы вернуть в исходный размер картинку, нужно применить .identity
+                self?.fotoImageView.transform = .identity //Чтобы вернуть в исходный размер картинку, нужно применить .identity
             }
     }
 }

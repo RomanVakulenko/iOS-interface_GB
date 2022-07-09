@@ -18,12 +18,9 @@ class MyGroupViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         
-        // а тут мы подпишемся на нотификейшн
+        //5L 2.13m а тут мы подпишемся на нотификейшн
         NotificationCenter.default.addObserver(self, selector: #selector(didPressToGroup(_:)), name: Notification.Name("pressToGroup"), object: nil)//обозревателем указываем этотКласс, селектор - это функция,кот. будет обрабатывать, нейм - на какое событие мы подписываемся, объект мы лучше поймаем в функции, чтобы применить какую-либо логику;
-        
-        
-        super.viewDidLoad()
-        self.navigationController?.delegate = self //указываем navigationControllerу брать всю анимацию из РедVC
+        self.navigationController?.delegate = self //указываем navigationControllerу брать всю анимацию из 
     }
     
     @objc func didPressToGroup(_ notification: Notification) {
@@ -37,7 +34,7 @@ class MyGroupViewController: UIViewController {
             tableView.reloadData()// перезагружаем ячейки
         }
     }
-    deinit {
+    deinit {//важно отписаться от нотификейшн - тк в нотификейшнСентер мы закидываем ссылку на наш файл self'ом в 22 строке и ссылка там будет висеть - мусор. Отписываться надо обычно во ВьюДидАнлоалд( но можно и тут)
         NotificationCenter.default.removeObserver(self)
     }
 
@@ -50,6 +47,7 @@ class MyGroupViewController: UIViewController {
         super.viewWillDisappear(animated)// чтобы при переходе назад вернулось обратно
     }
 }
+
 //xcode вначале Предлагал пофиксить и подписать MyGroupViewController на класс UINavigationControllerDelegate -лучше сделаем extension:
 extension MyGroupViewController: UINavigationControllerDelegate {
     func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
@@ -58,16 +56,13 @@ extension MyGroupViewController: UINavigationControllerDelegate {
 }
 
 
-
 var groups = [Group]() //создали массив из групп и инициализируем его сразу - во viewDidLoad вызовем fillData и передадим в groups
 let customTableViewCellReuse = "customTableViewCellReuse"
 
 extension MyGroupViewController: UITableViewDataSource {
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return groups.count
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: customTableViewCellReuse, for: indexPath) as? CustomTableViewCell else { return UITableViewCell() }
         
@@ -80,7 +75,6 @@ extension MyGroupViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
     }
-    
     //  вместо Сеги как в MyFriendViewController используем другой способ - через нотификейшн
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
