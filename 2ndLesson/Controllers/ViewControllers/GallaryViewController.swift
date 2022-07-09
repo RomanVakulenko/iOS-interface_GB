@@ -25,3 +25,43 @@ class GallaryViewController: UIViewController {
         collectionView.reloadData()
     }
 }
+
+
+
+extension GallaryViewController: UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
+    { return self.fotoAlbum.count }
+
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: fotoCollectionViewReuseIdentifier, for: indexPath) as? FotoCollectionViewCell else {return UICollectionViewCell()}
+        
+//        cell.configure(image: UIImage(named: self.fotoAlbum[indexPath.item])) //рисует не просто Петра какого-то, а чтото из фотоальбома; то, откуда он возьмет имя файла, в котором будут лежать фотос
+        let image = UIImage(named: self.fotoAlbum[indexPath.item].url)
+        cell.configure(image: image, isLiked: true, likeCounter: 5, onlikeClosure: {isLikePressed, currentCounter in // 8.2.2 (нажатый лайк и счет надо передать в GallaryViewController closure5) 1ч40 а уже в GallaryViewController в клоужер прилетают 2 параметра
+            print("counter \(currentCounter)")
+            print(isLikePressed ? "true" : "false")
+        })
+        return cell
+    }
+}
+
+
+extension GallaryViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(indexPath.item)
+    }
+}
+
+// если нужно, чтобы в строке было всегда фиксированное число ячеек и большее переходило на новую строку, то:
+extension GallaryViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let width = collectionView.bounds.width
+        let whiteSpaces: CGFloat = 32
+        let cellWidth = width/3 - whiteSpaces
+        
+        return CGSize(width: cellWidth, height: cellWidth)
+    }
+}
