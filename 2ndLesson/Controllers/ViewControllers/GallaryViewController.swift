@@ -12,7 +12,7 @@ class GallaryViewController: UIViewController {
     
     let fotoCollectionViewReuseIdentifier = "fotoCollectionViewReuseIdentifier"
 
-    var fotoAlbum = [String] ()//5L 1.41m инициализировали фотольбом //8L1h22m вместо String вставили MyFoto
+    var fotoAlbum = [MyFoto] ()//5L 1.41m инициализировали фотольбом //8L1h22m вместо String вставили MyFoto
 //    var fotoAlbumIndex = 0 //8L1h53m можем передавать не фотоальбом, а индекс
     
     override func viewDidLoad() {
@@ -41,7 +41,7 @@ extension GallaryViewController: UICollectionViewDataSource {
 //        let localFotoAlbumIndex = fotoAlbumIndex
 //        let currentFotoAlbum = Storage.shared.friends[localFotoAlbumIndex].fotoAlbum //8.3.SavingLikesBySingleton
         
-        let image = UIImage(named: self.fotoAlbum[indexPath.item]) //рисует не просто Петра какого-то, а чтото из фотоальбома; то, откуда он возьмет имя файла, в котором будут лежать фотос 8.3.SavingLikesBySingleton  - вставили
+        let image = UIImage(named: self.fotoAlbum[indexPath.item].url) //8L 1.21m рисует не просто Петра какого-то, а чтото из фотоальбома; то, откуда он возьмет имя файла, в котором будут лежать фотос 8.3.SavingLikesBySingleton  - вставили
         
         cell.configure(image: image, isLiked: true, likeCounter: 3, onlikeClosure: { isLikePressed, currentCounter in //8L1h38m конфигурируем дополнительно клоужер; в клоужер прилетает 2 параметра нажата/нет и числоНажатий; 8.3.SavingLikesBySingleton 8L2h00 с использованием Storage мы должны в конфигураторе не просто лайкКаунтер , а должны считать его например из фотольбома
             print("counter \(currentCounter)") //выведем в консоль - посмотрим как отрабатывает делегат
@@ -67,7 +67,7 @@ extension GallaryViewController: UICollectionViewDelegate {
 
 //закоментил, чтобы уйти от прошлого синглтона(мы в него друзей засунули)
 //        let imageFullScreen = Storage.shared.friends[fotoAlbumIndex].fotoAlbum[indexPath.item].url //возьмем из Сторадж, добавили url,чтобы в строке ниже named было действиетльно строка
-        let imageFullScreen = self.fotoAlbum[indexPath.item] //пытался достать фото для галереи
+        let imageFullScreen = self.fotoAlbum[indexPath.item].url //пытался достать фото для галереи
         
         
         

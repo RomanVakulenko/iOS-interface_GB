@@ -77,7 +77,7 @@
                 <outlet property="nameLabel" destination="GXF-N5-2wJ" id="XvA-f9-7W1"/>
                 <outlet property="viewForShadowFoto" destination="fiw-op-1sJ" id="diM-nP-LbB"/>
             </connections>
-            <point key="canvasLocation" x="1586" y="-38"/>
+            <point key="canvasLocation" x="1236" y="-57"/>
         </tableViewCell>
     </objects>
 </document>
