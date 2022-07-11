@@ -16,7 +16,6 @@
 		AD11067E284A49AB000BEFF7 /* AllGroupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD11067D284A49AB000BEFF7 /* AllGroupController.swift */; };
 		AD110680284A4A87000BEFF7 /* MyFriendsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD11067F284A4A87000BEFF7 /* MyFriendsController.swift */; };
 		AD1F2BC52864350E00A681AD /* Foto.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1F2BC42864350E00A681AD /* Foto.swift */; };
-		AD1F2BC728645F4E00A681AD /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1F2BC628645F4E00A681AD /* Storage.swift */; };
 		AD59DC7D2840BC90007A8C82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD59DC7C2840BC90007A8C82 /* AppDelegate.swift */; };
 		AD59DC7F2840BC90007A8C82 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD59DC7E2840BC90007A8C82 /* SceneDelegate.swift */; };
 		AD59DC812840BC90007A8C82 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD59DC802840BC90007A8C82 /* LoginViewController.swift */; };
@@ -28,6 +27,7 @@
 		AD8944182874830A003FBBE5 /* InteractiveTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8944172874830A003FBBE5 /* InteractiveTransition.swift */; };
 		AD89441B28748C3B003FBBE5 /* CustomPushAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD89441A28748C3B003FBBE5 /* CustomPushAnimator.swift */; };
 		AD961D1B2876EC9500B4A57B /* CustomPopAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD961D1A2876EC9500B4A57B /* CustomPopAnimator.swift */; };
+		AD9A02652879A6E50051643F /* Singleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9A02642879A6E50051643F /* Singleton.swift */; };
 		ADAC993D286D87A9000FC8A8 /* FullScreenFotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAC993C286D87A9000FC8A8 /* FullScreenFotoViewController.swift */; };
 		ADAC993F286D96F9000FC8A8 /* FotoHorizontalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADAC993E286D96F9000FC8A8 /* FotoHorizontalView.swift */; };
 		ADAC9941286D9704000FC8A8 /* FotoHorizontalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADAC9940286D9704000FC8A8 /* FotoHorizontalView.xib */; };
@@ -49,7 +49,6 @@
 		AD11067D284A49AB000BEFF7 /* AllGroupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGroupController.swift; sourceTree = "<group>"; };
 		AD11067F284A4A87000BEFF7 /* MyFriendsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFriendsController.swift; sourceTree = "<group>"; };
 		AD1F2BC42864350E00A681AD /* Foto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Foto.swift; sourceTree = "<group>"; };
-		AD1F2BC628645F4E00A681AD /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		AD59DC792840BC90007A8C82 /* 2ndLesson.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 2ndLesson.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD59DC7C2840BC90007A8C82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AD59DC7E2840BC90007A8C82 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +62,7 @@
 		AD8944172874830A003FBBE5 /* InteractiveTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveTransition.swift; sourceTree = "<group>"; };
 		AD89441A28748C3B003FBBE5 /* CustomPushAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPushAnimator.swift; sourceTree = "<group>"; };
 		AD961D1A2876EC9500B4A57B /* CustomPopAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopAnimator.swift; sourceTree = "<group>"; };
+		AD9A02642879A6E50051643F /* Singleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Singleton.swift; sourceTree = "<group>"; };
 		ADAC993C286D87A9000FC8A8 /* FullScreenFotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FullScreenFotoViewController.swift; path = 2ndLesson/Controllers/view/FullScreenFotoViewController.swift; sourceTree = SOURCE_ROOT; };
 		ADAC993E286D96F9000FC8A8 /* FotoHorizontalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FotoHorizontalView.swift; path = 2ndLesson/Controllers/ViewControllers/FotoHorizontalView.swift; sourceTree = SOURCE_ROOT; };
 		ADAC9940286D9704000FC8A8 /* FotoHorizontalView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FotoHorizontalView.xib; sourceTree = "<group>"; };
@@ -100,6 +100,7 @@
 		AD59DC702840BC90007A8C82 = {
 			isa = PBXGroup;
 			children = (
+				AD9A02642879A6E50051643F /* Singleton.swift */,
 				AD59DC7B2840BC90007A8C82 /* 2ndLesson */,
 				AD59DC7A2840BC90007A8C82 /* Products */,
 			);
@@ -170,7 +171,6 @@
 				ADC5B84C284FA15500BD95FD /* Friend.swift */,
 				AD1F2BC42864350E00A681AD /* Foto.swift */,
 				AD0EE3D9285A283D0051E931 /* Group.swift */,
-				AD1F2BC628645F4E00A681AD /* Storage.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -264,7 +264,6 @@
 				AD59DC812840BC90007A8C82 /* LoginViewController.swift in Sources */,
 				AD11067E284A49AB000BEFF7 /* AllGroupController.swift in Sources */,
 				AD110680284A4A87000BEFF7 /* MyFriendsController.swift in Sources */,
-				AD1F2BC728645F4E00A681AD /* Storage.swift in Sources */,
 				AD0EE3DA285A283D0051E931 /* Group.swift in Sources */,
 				AD894416287480FF003FBBE5 /* CustomNavigationController.swift in Sources */,
 				AD0EE3D8285A24C90051E931 /* MyGroupViewController.swift in Sources */,
@@ -279,6 +278,7 @@
 				AD0EE3C42859DB300051E931 /* GallaryViewController.swift in Sources */,
 				AD59DC7D2840BC90007A8C82 /* AppDelegate.swift in Sources */,
 				AD0EE3C12859DAC30051E931 /* FotoCollectionViewCell.swift in Sources */,
+				AD9A02652879A6E50051643F /* Singleton.swift in Sources */,
 				AD8943F428732A79003FBBE5 /* Animator.swift in Sources */,
 				AD59DC7F2840BC90007A8C82 /* SceneDelegate.swift in Sources */,
 				AD89441B28748C3B003FBBE5 /* CustomPushAnimator.swift in Sources */,
